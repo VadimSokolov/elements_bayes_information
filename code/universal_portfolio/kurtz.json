@@ -1,0 +1,42 @@
+{
+ "rows": {
+  "100": {
+   "active": 28,
+   "total_stake": 0.50424,
+   "stake_fav": 0.0572,
+   "logS": -21.075
+  },
+  "500": {
+   "active": 25,
+   "total_stake": 0.1755,
+   "stake_fav": 0.0179,
+   "logS": -45.62
+  },
+  "1000": {
+   "active": 20,
+   "total_stake": 0.09823,
+   "stake_fav": 0.01965,
+   "logS": -53.327
+  },
+  "3000": {
+   "active": 14,
+   "total_stake": 0.02621,
+   "stake_fav": 0.01084,
+   "logS": -68.005
+  },
+  "5000": {
+   "active": 11,
+   "total_stake": 0.02302,
+   "stake_fav": 0.01049,
+   "logS": -68.236
+  },
+  "10000": {
+   "active": 9,
+   "total_stake": 0.0197,
+   "stake_fav": 0.01202,
+   "logS": -65.848
+  }
+ },
+ "logS": -65.84804478916766,
+ "btrue": 0.0058823529411764705
+}

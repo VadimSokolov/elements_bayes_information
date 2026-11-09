@@ -1,0 +1,248 @@
+# book.yaml: the facts about the book, kept in one place.
+# bookrepo.py generates RESULTS.md, CITATION.cff, the README block and the summary blocks from this file and results.yaml.
+# The books website reads it too. Guide: references/repository.md of the book-writing skill.
+
+slug: elements_bayes_information                     # lowercase letters, digits and underscores; also the name of the book's page on the site
+title: "Elements of Bayes and Information Theory"
+subtitle: "A Predictive Theory of Inference: Information, Algorithms, and Large Deviations"
+authors:
+  - given: "Nick"
+    family: "Polson"
+    orcid: ""                    # none: Nick has no ORCID (authors, 12 Oct 2026)
+    affiliation: "Booth School of Business, University of Chicago"
+  - given: "Vadim"
+    family: "Sokolov"
+    orcid: "0000-0002-6618-2965"
+    affiliation: "Department of Systems Engineering and Operations Research, George Mason University"
+credit_names: "Polson and Sokolov"                 # how a citation names the authors, e.g. "Polson and Sokolov"; empty: built from the family names
+year: 2026
+edition: "1"
+version: "1.0.0"                 # the release tag is v<version>
+date_released: "2026-11-08"                # YYYY-MM-DD, set at release
+publisher: "Independently published"                    # "Independently published" (the imprint KDP shows for a free KDP ISBN)
+# no isbn: a free KDP ISBN may be used only on KDP, so it goes on the ISBN line of kdp.md (private) and is not printed in
+# the PDF unless kdp.md says "ISBN on the copyright page: yes" (kdp.py interior); this file is published (references/publishing.md)
+doi: "10.5281/zenodo.24067804" # this edition's DOI; zenodo.py reserve writes it before the final build
+license_text: CC-BY-4.0          # text, figures and PDF
+license_code: MIT
+repository: https://github.com/VadimSokolov/elements_bayes_information   # the public repository; its name is the slug
+site_page: https://vsokolov.org/books/elements_bayes_information/    # the book page on the website; its PDF link is the GitHub release asset
+language: en
+print_url: ""                    # where to buy the printed book (optional)
+html_url: ""                     # Quarto books only: where the HTML edition (the book as a website) is served, https://vsokolov.org/<repository>/
+cover_image: pdf/cover.jpg                  # front cover image (PNG or JPEG, about 1600 px tall) in the repository, e.g. pdf/cover.png
+pdf: pdf/elements_bayes_information.pdf              # the released PDF; bookrepo.py pdf copies the build here
+keywords:
+  - "Bayesian statistics"
+  - "information theory"
+  - "de Finetti theorem"
+  - "exchangeability"
+  - "Sanov theorem"
+  - "large deviations"
+  - "moderate deviations"
+  - "maximum entropy"
+  - "Kullback Leibler divergence"
+  - "e values"
+  - "shrinkage priors"
+  - "predictive inference"
+short_description: "A Bayesian statistics monograph built on de Finetti, Sanov and Bayes: exchangeable prediction under moment constraints gives maximum entropy laws, and testing, shrinkage, asymptotics and decision are read on one moderate deviation scale."
+description: |
+  Bayesian inference is a predictive act. This book builds it from three ideas: de Finetti supplies the structure, writing exchangeable beliefs as mixtures of independent laws; Sanov supplies the asymptotics, the exponential concentration of empirical measures at a rate given by the Kullback Leibler divergence; and Bayes supplies the updating, an exponential tilt of the predictive law. Together they give a tilted de Finetti theorem: conditioning an exchangeable sequence on empirical moment constraints yields predictive laws that are I projections of a baseline measure, so parameters emerge as limits of empirical functionals and maximum entropy appears as a predictive limit rather than a postulate. Testing, shrinkage, asymptotics and decision are then read on one moderate deviation scale.
+
+  Results the book proves, most first stated in the authors' papers with Daniel Zantedeschi and Jyotishka Datta: a finite sample total variation bound between a block drawn under a moment window and independent draws from the I projection, and the projected de Finetti limit behind it; a split of the predictive Kullback Leibler Bayes risk into a Sanov term and a posterior contraction term,; a condition for a scalar learning rate to calibrate credible sets at moderate scale, namely that model curvature and score covariance be proportional; one control variate form for Bayes linear and prediction powered inference estimators, with the optimal gain in closed form; the global posterior of federated learning as a product of local experts under exchangeability; and a convergence rate for the policy that maximizes posterior expected utility in generative Bayesian computation. Several results are stated conditionally or as open problems, and the book says which.
+
+  Later chapters treat computation, universal portfolios, causal machine learning and medicine. Scripts reproducing every computed figure and number are in the repository.
+source:
+  format: latex
+  dir: .
+  main: Elements_of_Bayes_INTERIOR.tex
+  aux: Elements_of_Bayes_INTERIOR.aux        # written by the build
+  toc: Elements_of_Bayes_INTERIOR.toc
+  pdf: Elements_of_Bayes_INTERIOR.pdf        # the built PDF; bookrepo.py pdf copies it to pdf above
+  meta: bookmeta.tex   # generated: \BookDOI, \BookVersion ... for the copyright page (\BookISBN only in the print build); \input it in the preamble
+macros: "Elements_of_Bayes_INTERIOR.tex"                       # the file that defines the book's macros, e.g. source/Elements_of_Bayes_INTERIOR.tex
+code_dir: code             # empty if the book has no code
+environments: {}                 # printed names that \newtheorem does not declare, e.g. {thm: Theorem}
+related_papers:                  # the authors' own papers (the References group Core source papers); KEY is used in results.yaml origin
+  - key: pz2025a
+    citation: "Polson and Zantedeschi (2025a), De Finetti + Sanov = Bayes: Forward and Inverse Sanov in Bayesian Prediction, Statistical Science (revised short communication)"
+    url: "https://arxiv.org/abs/2509.13283"
+  - key: pz2025b
+    citation: "Polson and Zantedeschi (2025b), Bayesian Prediction under Moment Conditioning"
+    url: "https://arxiv.org/abs/2510.20742"
+  - key: pz2025c
+    citation: "Polson and Zantedeschi (2025c), Entropy-Regularized Inference: A Predictive Approach"
+    url: "https://arxiv.org/abs/2512.21639"
+  - key: pz2026a
+    citation: "Polson and Zantedeschi (2026a), Martingale Posterior Predictive Coherence: Hausdorff Moment Hierarchy"
+    url: "https://arxiv.org/abs/2603.00661"
+  - key: pz2026b
+    citation: "Polson and Zantedeschi (2026b), Bayes with No Shame: Admissibility Geometries of Predictive Inference"
+    url: "https://arxiv.org/abs/2603.05335"
+  - key: pz2026c
+    citation: "Polson and Zantedeschi (2026c), E-Values, Bayes Risk, Dual Role of Markov's Inequality"
+    url: "https://arxiv.org/abs/2604.00337"
+  - key: psz2026a
+    citation: "Polson, Sokolov and Zantedeschi (2026a), Bayes, E-values, and Testing"
+    url: "https://arxiv.org/abs/2602.04146"
+  - key: dpsz2026
+    citation: "Datta, Polson, Sokolov and Zantedeschi (2026), A New Look at Bayesian Testing"
+    url: "https://arxiv.org/abs/2602.11132"
+  - key: psz2026b
+    citation: "Polson, Sokolov and Zantedeschi (2026b), Bayes Risk for Goodness of Fit Tests"
+    url: "https://arxiv.org/abs/2602.15297"
+  - key: psz2026c
+    citation: "Polson, Sokolov and Zantedeschi (2026c), Horseshoe Priors and MDP"
+    url: "https://arxiv.org/abs/2604.01266"
+  - key: pz2026i
+    citation: "Polson and Zantedeschi (2026i), Nonparametric Predictive Bayes Risk, working paper"
+    url: ""
+  - key: psz2026d
+    citation: "Polson, Sokolov and Zantedeschi (2026d), Minimum Description Length, Bayesian Evidence, and the Information-Theoretic View of Model Selection, working paper"
+    url: ""
+  - key: ps2026a
+    citation: "Polson and Sokolov (2026a), Kolmogorov on Cybernetics, working paper"
+    url: ""
+  - key: pz2026d
+    citation: "Polson and Zantedeschi (2026d), Maximum Entropy Algorithms for Predictive Rules: Blahut-Arimoto, Conditional Limits, and Iterative Scaling, working paper"
+    url: ""
+  - key: pz2026e
+    citation: "Polson and Zantedeschi (2026e), When Is Bayes Gaussian? Curvature of the Rate Function, from Bernstein-von Mises to Ghosh, working notes"
+    url: ""
+  - key: psz2026e
+    citation: "Polson, Sokolov and Zantedeschi (2026e), Bayes Factors and Moderate Deviations in Genome-Wide Screening, SSRN 7167078"
+    url: ""
+  - key: pz2026f
+    citation: "Polson and Zantedeschi (2026f), Federated Learning, de Finetti, and Sanov, working paper"
+    url: ""
+  - key: pz2026j
+    citation: "Polson and Zantedeschi (2026j), Bayesian Asymptotics: Merging, Martingales, and Moderate Deviations, SSRN 7013738"
+    url: ""
+  - key: psz2026f
+    citation: "Polson, Sokolov and Zantedeschi (2026f), Linear Bayes Methods for Prediction-Powered Inference, SSRN 6744239"
+    url: ""
+  - key: psz2026g
+    citation: "Polson, Sokolov and Zantedeschi (2026g), Ordered Empirical Bayes: A Default Regularizer for Score-Based Generative Models, SSRN 7167039"
+    url: ""
+  - key: dps2025
+    citation: "Datta, Polson and Sokolov (2025), Bayesian Global-Local Regularization"
+    url: "https://arxiv.org/abs/2512.13992"
+  - key: ps2025
+    citation: "Polson and Sokolov (2025), Bayesian Double Descent"
+    url: "https://arxiv.org/abs/2507.07338"
+  - key: psz_gbc_causal
+    citation: "Polson, Sokolov and Zantedeschi (2026), Generative Bayesian Computation: A Measure-Theoretic Framework for Utility-Based Causal Inference, working paper"
+    url: ""
+  - key: psz_evalues_sanov
+    citation: "Polson, Sokolov and Zantedeschi (2026), E-Values and Sanov's Theorem, working paper"
+    url: ""
+  - key: p2026a
+    citation: "Polson (2026), A Bayesian Interpretation of Cover's Universal Portfolio, submitted to Entropy"
+    url: ""
+#  - key: smith2026x
+#    citation: "Smith and Jones (2026), Title of the paper, arXiv:2601.00001"
+#    url: https://arxiv.org/abs/2601.00001
+chapters:
+  - key: "1"
+    title: "Prediction, Exchangeability, and the Predictive Paradigm"
+    stem: 01_prediction_exchangeability_and_the_predictive_paradigm
+  - key: "2"
+    title: "Information, Types, and Large Deviations"
+    stem: 02_information_types_and_large_deviations
+  - key: "3"
+    title: "The Tilted de Finetti Synthesis"
+    stem: 03_the_tilted_de_finetti_synthesis
+  - key: "4"
+    title: "Risk, Coding, and Shrinkage"
+    stem: 04_risk_coding_and_shrinkage
+  - key: "5"
+    title: "Predictive Geometry and Maximum Entropy"
+    stem: 05_predictive_geometry_and_maximum_entropy
+  - key: "6"
+    title: "Bayes, E-values, and Testing"
+    stem: 06_bayes_e_values_and_testing
+  - key: "7"
+    title: "Posterior Asymptotics and the Gaussian Regime"
+    stem: 07_posterior_asymptotics_and_the_gaussian_regime
+  - key: "8"
+    title: "Scalable Computation and Deep Learning"
+    stem: 08_scalable_computation_and_deep_learning
+  - key: "9"
+    title: "Regularization, Nonparametric Models, and Averaging"
+    stem: 09_regularization_nonparametric_models_and_averaging
+  - key: "10"
+    title: "Growth, Filtering, and Monte Carlo"
+    stem: 10_growth_filtering_and_monte_carlo
+  - key: "11"
+    title: "Sequential Decisions and Reinforcement Learning"
+    stem: 11_sequential_decisions_and_reinforcement_learning
+  - key: "12"
+    title: "Causal Machine Learning"
+    stem: 12_causal_machine_learning
+  - key: "13"
+    title: "Applications, Worked Examples, and Federated Learning"
+    stem: 13_applications_worked_examples_and_federated_learning
+  - key: "A"
+    title: "Convex Analysis and Legendre Duality"
+    stem: A_convex_analysis_and_legendre_duality
+  - key: "B"
+    title: "A Large-Deviations Toolkit"
+    stem: B_a_large_deviations_toolkit
+  - key: "C"
+    title: "Information Geometry"
+    stem: C_information_geometry
+  - key: "D"
+    title: "Exponential Families and Conjugate Priors"
+    stem: D_exponential_families_and_conjugate_priors
+  - key: "E"
+    title: "Martingales and Ville's Inequality"
+    stem: E_martingales_and_villes_inequality
+  - key: "F"
+    title: "Exchangeability and de Finetti"
+    stem: F_exchangeability_and_de_finetti
+  - key: "G"
+    title: "Optimization and Stochastic Approximation"
+    stem: G_optimization_and_stochastic_approximation
+  - key: "H"
+    title: "Markov Chains and MCMC Convergence"
+    stem: H_markov_chains_and_mcmc_convergence
+  - key: "I"
+    title: "Proper Scoring Rules and Calibration"
+    stem: I_proper_scoring_rules_and_calibration
+  - key: "J"
+    title: "Notation and Symbols"
+    stem: J_notation_and_symbols
+  - key: "K"
+    title: "Selected Proofs"
+    stem: K_selected_proofs
+  - key: "L"
+    title: "Solutions to Selected Problems"
+    stem: L_solutions_to_selected_problems
+  - key: "M"
+    title: "Concentration Inequalities"
+    stem: M_concentration_inequalities
+  - key: "N"
+    title: "Empirical Process Theory and Learning"
+    stem: N_empirical_process_theory_and_learning
+  - key: "O"
+    title: "Reproducing Kernel Hilbert Spaces"
+    stem: O_reproducing_kernel_hilbert_spaces
+  - key: "P"
+    title: "Optimal Transport"
+    stem: P_optimal_transport
+  - key: "Q"
+    title: "Stein's Method and Stein Discrepancies"
+    stem: Q_steins_method_and_stein_discrepancies
+  - key: "R"
+    title: "Causal Foundations"
+    stem: R_causal_foundations
+  - key: "S"
+    title: "Proofs of the Master Inequality"
+    stem: S_proofs_of_the_master_inequality
+  - key: "T"
+    title: "A Gallery of Classic Bayesian Learning Examples"
+    stem: T_a_gallery_of_classic_bayesian_learning_examples
+style:
+  forbid: ["—", "–"]             # characters that may not appear in published text
+  no_hyphenated_words: true
+  allow_hyphenated: []           # words that keep their hyphen, e.g. names

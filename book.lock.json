@@ -1,0 +1,942 @@
+{
+ "edition": "1",
+ "pdf": {
+  "bytes": 6747299,
+  "file": "pdf/elements_bayes_information.pdf",
+  "pages": 644,
+  "parts": [
+   {
+    "first_page": "i",
+    "key": "",
+    "last_page": "xviii",
+    "pages": 18,
+    "title": "Front matter"
+   },
+   {
+    "first_page": "1",
+    "key": "1",
+    "last_page": "14",
+    "pages": 14,
+    "title": "Chapter 1. Prediction, Exchangeability, and the Predictive Paradigm"
+   },
+   {
+    "first_page": "15",
+    "key": "2",
+    "last_page": "26",
+    "pages": 12,
+    "title": "Chapter 2. Information, Types, and Large Deviations"
+   },
+   {
+    "first_page": "27",
+    "key": "3",
+    "last_page": "50",
+    "pages": 24,
+    "title": "Chapter 3. The Tilted de Finetti Synthesis"
+   },
+   {
+    "first_page": "51",
+    "key": "4",
+    "last_page": "146",
+    "pages": 96,
+    "title": "Chapter 4. Risk, Coding, and Shrinkage"
+   },
+   {
+    "first_page": "147",
+    "key": "5",
+    "last_page": "192",
+    "pages": 46,
+    "title": "Chapter 5. Predictive Geometry and Maximum Entropy"
+   },
+   {
+    "first_page": "193",
+    "key": "6",
+    "last_page": "224",
+    "pages": 32,
+    "title": "Chapter 6. Bayes, E-values, and Testing"
+   },
+   {
+    "first_page": "225",
+    "key": "7",
+    "last_page": "286",
+    "pages": 62,
+    "title": "Chapter 7. Posterior Asymptotics and the Gaussian Regime"
+   },
+   {
+    "first_page": "287",
+    "key": "8",
+    "last_page": "314",
+    "pages": 28,
+    "title": "Chapter 8. Scalable Computation and Deep Learning"
+   },
+   {
+    "first_page": "315",
+    "key": "9",
+    "last_page": "338",
+    "pages": 24,
+    "title": "Chapter 9. Regularization, Nonparametric Models, and Averaging"
+   },
+   {
+    "first_page": "339",
+    "key": "10",
+    "last_page": "370",
+    "pages": 32,
+    "title": "Chapter 10. Growth, Filtering, and Monte Carlo"
+   },
+   {
+    "first_page": "371",
+    "key": "11",
+    "last_page": "379",
+    "pages": 9,
+    "title": "Chapter 11. Sequential Decisions and Reinforcement Learning"
+   },
+   {
+    "first_page": "380",
+    "key": "12",
+    "last_page": "434",
+    "pages": 55,
+    "title": "Chapter 12. Causal Machine Learning"
+   },
+   {
+    "first_page": "435",
+    "key": "13",
+    "last_page": "488",
+    "pages": 54,
+    "title": "Chapter 13. Applications, Worked Examples, and Federated Learning"
+   },
+   {
+    "first_page": "489",
+    "key": "",
+    "last_page": "492",
+    "pages": 4,
+    "title": "Synthesis: One Scale"
+   },
+   {
+    "first_page": "493",
+    "key": "A",
+    "last_page": "494",
+    "pages": 2,
+    "title": "Appendix A. Convex Analysis and Legendre Duality"
+   },
+   {
+    "first_page": "495",
+    "key": "B",
+    "last_page": "496",
+    "pages": 2,
+    "title": "Appendix B. A Large-Deviations Toolkit"
+   },
+   {
+    "first_page": "497",
+    "key": "C",
+    "last_page": "498",
+    "pages": 2,
+    "title": "Appendix C. Information Geometry"
+   },
+   {
+    "first_page": "499",
+    "key": "D",
+    "last_page": "500",
+    "pages": 2,
+    "title": "Appendix D. Exponential Families and Conjugate Priors"
+   },
+   {
+    "first_page": "501",
+    "key": "E",
+    "last_page": "502",
+    "pages": 2,
+    "title": "Appendix E. Martingales and Ville's Inequality"
+   },
+   {
+    "first_page": "503",
+    "key": "F",
+    "last_page": "504",
+    "pages": 2,
+    "title": "Appendix F. Exchangeability and de Finetti"
+   },
+   {
+    "first_page": "505",
+    "key": "G",
+    "last_page": "506",
+    "pages": 2,
+    "title": "Appendix G. Optimization and Stochastic Approximation"
+   },
+   {
+    "first_page": "507",
+    "key": "H",
+    "last_page": "508",
+    "pages": 2,
+    "title": "Appendix H. Markov Chains and MCMC Convergence"
+   },
+   {
+    "first_page": "509",
+    "key": "I",
+    "last_page": "510",
+    "pages": 2,
+    "title": "Appendix I. Proper Scoring Rules and Calibration"
+   },
+   {
+    "first_page": "511",
+    "key": "J",
+    "last_page": "512",
+    "pages": 2,
+    "title": "Appendix J. Notation and Symbols"
+   },
+   {
+    "first_page": "513",
+    "key": "K",
+    "last_page": "514",
+    "pages": 2,
+    "title": "Appendix K. Selected Proofs"
+   },
+   {
+    "first_page": "515",
+    "key": "L",
+    "last_page": "524",
+    "pages": 10,
+    "title": "Appendix L. Solutions to Selected Problems"
+   },
+   {
+    "first_page": "525",
+    "key": "M",
+    "last_page": "526",
+    "pages": 2,
+    "title": "Appendix M. Concentration Inequalities"
+   },
+   {
+    "first_page": "527",
+    "key": "N",
+    "last_page": "528",
+    "pages": 2,
+    "title": "Appendix N. Empirical Process Theory and Learning"
+   },
+   {
+    "first_page": "529",
+    "key": "O",
+    "last_page": "530",
+    "pages": 2,
+    "title": "Appendix O. Reproducing Kernel Hilbert Spaces"
+   },
+   {
+    "first_page": "531",
+    "key": "P",
+    "last_page": "532",
+    "pages": 2,
+    "title": "Appendix P. Optimal Transport"
+   },
+   {
+    "first_page": "533",
+    "key": "Q",
+    "last_page": "534",
+    "pages": 2,
+    "title": "Appendix Q. Stein's Method and Stein Discrepancies"
+   },
+   {
+    "first_page": "535",
+    "key": "R",
+    "last_page": "536",
+    "pages": 2,
+    "title": "Appendix R. Causal Foundations"
+   },
+   {
+    "first_page": "537",
+    "key": "S",
+    "last_page": "538",
+    "pages": 2,
+    "title": "Appendix S. Proofs of the Master Inequality"
+   },
+   {
+    "first_page": "539",
+    "key": "T",
+    "last_page": "588",
+    "pages": 50,
+    "title": "Appendix T. A Gallery of Classic Bayesian Learning Examples"
+   },
+   {
+    "first_page": "589",
+    "key": "",
+    "last_page": "623",
+    "pages": 35,
+    "title": "References"
+   },
+   {
+    "first_page": "624",
+    "key": "",
+    "last_page": "626",
+    "pages": 3,
+    "title": "Index"
+   }
+  ],
+  "sha256": "50e0a6124fbcf6b2bd933b6042d4e59b1caeb5a41183bb70f4e8987780059c90"
+ },
+ "results": {
+  "abos_failure_for_strong_cusp": {
+   "environment": "conjecture",
+   "file": "Elements_of_Bayes_INTERIOR.tex",
+   "fingerprint": "dc2a7e839b26",
+   "label": "nr:prop:strongcusp",
+   "number": "4.45",
+   "page": "140",
+   "printed": "Conjecture 4.45",
+   "verified_fingerprint": "dc2a7e839b26",
+   "verified_on": "2026-11-08"
+  },
+  "abos_of_the_beta_horseshoe": {
+   "environment": "conjecture",
+   "file": "Elements_of_Bayes_INTERIOR.tex",
+   "fingerprint": "10267a91f94a",
+   "label": "nr:thm:betaHS",
+   "number": "4.48",
+   "page": "142",
+   "printed": "Conjecture 4.48",
+   "verified_fingerprint": "10267a91f94a",
+   "verified_on": "2026-11-08"
+  },
+  "adaptive_dpm_rate": {
+   "environment": "theorem",
+   "file": "Elements_of_Bayes_INTERIOR.tex",
+   "fingerprint": "de9d33f9e618",
+   "label": "np:thm:dp",
+   "number": "4.18",
+   "page": "75",
+   "printed": "Theorem 4.18",
+   "verified_fingerprint": "de9d33f9e618",
+   "verified_on": "2026-11-08"
+  },
+  "adaptive_logistic_gaussian_process_rate": {
+   "environment": "theorem",
+   "file": "Elements_of_Bayes_INTERIOR.tex",
+   "fingerprint": "ab11d6f71e47",
+   "label": "np:thm:gp",
+   "number": "4.20",
+   "page": "77",
+   "printed": "Theorem 4.20",
+   "verified_fingerprint": "ab11d6f71e47",
+   "verified_on": "2026-11-08"
+  },
+  "adaptive_polya_tree_rate": {
+   "environment": "theorem",
+   "file": "Elements_of_Bayes_INTERIOR.tex",
+   "fingerprint": "b40eba3530ef",
+   "label": "np:thm:pt",
+   "number": "4.19",
+   "page": "76",
+   "printed": "Theorem 4.19",
+   "verified_fingerprint": "b40eba3530ef",
+   "verified_on": "2026-11-08"
+  },
+  "admissibility_classes_non_nested": {
+   "environment": "proposition",
+   "file": "Elements_of_Bayes_INTERIOR.tex",
+   "fingerprint": "0c6c626da7b9",
+   "label": "crit:prop:separation",
+   "number": "7.11",
+   "page": "242",
+   "printed": "Proposition 7.11",
+   "verified_fingerprint": "0c6c626da7b9",
+   "verified_on": "2026-11-08"
+  },
+  "bayesian_prediction_under_constrained_limit": {
+   "environment": "corollary",
+   "file": "Elements_of_Bayes_INTERIOR.tex",
+   "fingerprint": "a430668123d8",
+   "label": "cor:predict",
+   "number": "3.5",
+   "page": "33",
+   "printed": "Corollary 3.5",
+   "verified_fingerprint": "a430668123d8",
+   "verified_on": "2026-11-08"
+  },
+  "bayesian_sanov": {
+   "environment": "proposition",
+   "file": "Elements_of_Bayes_INTERIOR.tex",
+   "fingerprint": "aa0b6a57b658",
+   "label": "ba:prop:bayes-sanov",
+   "number": "7.20",
+   "page": "255",
+   "printed": "Proposition 7.20",
+   "verified_fingerprint": "aa0b6a57b658",
+   "verified_on": "2026-11-08"
+  },
+  "berliner_hill_limit_of_bayes_linear": {
+   "environment": "theorem",
+   "file": "Elements_of_Bayes_INTERIOR.tex",
+   "fingerprint": "355f30207810",
+   "label": "thm:bhbl",
+   "number": "12.18",
+   "page": "402",
+   "printed": "Theorem 12.18",
+   "verified_fingerprint": "355f30207810",
+   "verified_on": "2026-11-08"
+  },
+  "best_scalar_temperature": {
+   "environment": "corollary",
+   "file": "Elements_of_Bayes_INTERIOR.tex",
+   "fingerprint": "73519f8370b6",
+   "label": "ba:cor:wstar",
+   "number": "7.32",
+   "page": "273",
+   "printed": "Corollary 7.32",
+   "verified_fingerprint": "73519f8370b6",
+   "verified_on": "2026-11-08"
+  },
+  "bl_and_cross_ppi_gain_on_residual": {
+   "environment": "theorem",
+   "file": "Elements_of_Bayes_INTERIOR.tex",
+   "fingerprint": "1fa83c3de55a",
+   "label": "thm:duality",
+   "number": "12.10",
+   "page": "397",
+   "printed": "Theorem 12.10",
+   "verified_fingerprint": "1fa83c3de55a",
+   "verified_on": "2026-11-08"
+  },
+  "canonical_sequential_evidence": {
+   "environment": "theorem",
+   "file": "Elements_of_Bayes_INTERIOR.tex",
+   "fingerprint": "66af7ccfdb96",
+   "label": "ev:thm:canonical",
+   "number": "6.1",
+   "page": "195",
+   "printed": "Theorem 6.1",
+   "verified_fingerprint": "66af7ccfdb96",
+   "verified_on": "2026-11-08"
+  },
+  "complexity_validity_tradeoff": {
+   "environment": "corollary",
+   "file": "Elements_of_Bayes_INTERIOR.tex",
+   "fingerprint": "41c6ee4437ac",
+   "label": "ev:cor:tradeoff",
+   "number": "6.4",
+   "page": "198",
+   "printed": "Corollary 6.4",
+   "verified_fingerprint": "41c6ee4437ac",
+   "verified_on": "2026-11-08"
+  },
+  "conditional_sanov_tilted_de_finetti": {
+   "environment": "theorem",
+   "file": "Elements_of_Bayes_INTERIOR.tex",
+   "fingerprint": "16b02c36b184",
+   "label": "np:thm:tilted",
+   "number": "4.5",
+   "page": "61",
+   "printed": "Theorem 4.5",
+   "verified_fingerprint": "16b02c36b184",
+   "verified_on": "2026-11-08"
+  },
+  "constrained_horizon_master_inequality": {
+   "environment": "theorem",
+   "file": "Elements_of_Bayes_INTERIOR.tex",
+   "fingerprint": "2ddced50c27f",
+   "label": "thm:master",
+   "number": "3.2",
+   "page": "30",
+   "printed": "Theorem 3.2",
+   "verified_fingerprint": "2ddced50c27f",
+   "verified_on": "2026-11-08"
+  },
+  "dependent_data_calibration": {
+   "environment": "proposition",
+   "file": "Elements_of_Bayes_INTERIOR.tex",
+   "fingerprint": "419c1b6c7d83",
+   "label": "ba:prop:lrv",
+   "number": "7.34",
+   "page": "275",
+   "printed": "Proposition 7.34",
+   "verified_fingerprint": "419c1b6c7d83",
+   "verified_on": "2026-11-08"
+  },
+  "exchangeable_block_collapse": {
+   "environment": "theorem",
+   "file": "Elements_of_Bayes_INTERIOR.tex",
+   "fingerprint": "3fe4de9d2960",
+   "label": "thm:collapse",
+   "number": "5.10",
+   "page": "156",
+   "printed": "Theorem 5.10",
+   "verified_fingerprint": "3fe4de9d2960",
+   "verified_on": "2026-11-08"
+  },
+  "federated_bernstein_von_mises": {
+   "environment": "corollary",
+   "file": "Elements_of_Bayes_INTERIOR.tex",
+   "fingerprint": "edec2fd2cf7c",
+   "label": "cor:fed-bvm",
+   "number": "13.9",
+   "page": "476",
+   "printed": "Corollary 13.9",
+   "verified_fingerprint": "edec2fd2cf7c",
+   "verified_on": "2026-11-08"
+  },
+  "federated_horseshoe_bias_vanishes_many_clients": {
+   "environment": "theorem",
+   "file": "Elements_of_Bayes_INTERIOR.tex",
+   "fingerprint": "3ace16efbd61",
+   "label": "thm:hs-bias-K",
+   "number": "13.26",
+   "page": "484",
+   "printed": "Theorem 13.26",
+   "verified_fingerprint": "3ace16efbd61",
+   "verified_on": "2026-11-08"
+  },
+  "federated_horseshoe_gaussian_bias_bounds": {
+   "environment": "theorem",
+   "file": "Elements_of_Bayes_INTERIOR.tex",
+   "fingerprint": "d7185eaa8759",
+   "label": "thm:hs-bias",
+   "number": "13.25",
+   "page": "484",
+   "printed": "Theorem 13.25",
+   "verified_fingerprint": "d7185eaa8759",
+   "verified_on": "2026-11-08"
+  },
+  "federated_horseshoe_sufficient_statistics": {
+   "environment": "theorem",
+   "file": "Elements_of_Bayes_INTERIOR.tex",
+   "fingerprint": "418ef4042dfd",
+   "label": "thm:hs-suff",
+   "number": "13.16",
+   "page": "480",
+   "printed": "Theorem 13.16",
+   "verified_fingerprint": "418ef4042dfd",
+   "verified_on": "2026-11-08"
+  },
+  "federated_product_of_experts": {
+   "environment": "theorem",
+   "file": "Elements_of_Bayes_INTERIOR.tex",
+   "fingerprint": "caa12a4f333e",
+   "label": "thm:fed-poe",
+   "number": "13.2",
+   "page": "473",
+   "printed": "Theorem 13.2",
+   "verified_fingerprint": "caa12a4f333e",
+   "verified_on": "2026-11-08"
+  },
+  "federated_sanov_concentration": {
+   "environment": "theorem",
+   "file": "Elements_of_Bayes_INTERIOR.tex",
+   "fingerprint": "d9e97317989f",
+   "label": "thm:fed-conc",
+   "number": "13.8",
+   "page": "475",
+   "printed": "Theorem 13.8",
+   "verified_fingerprint": "d9e97317989f",
+   "verified_on": "2026-11-08"
+  },
+  "functional_bvm_proportional_asymptotics": {
+   "environment": "theorem",
+   "file": "Elements_of_Bayes_INTERIOR.tex",
+   "fingerprint": "01d7afd790ee",
+   "label": "ba:thm:prop",
+   "number": "7.30",
+   "page": "271",
+   "printed": "Theorem 7.30",
+   "verified_fingerprint": "01d7afd790ee",
+   "verified_on": "2026-11-08"
+  },
+  "gaussian_localization_constraint_chart": {
+   "environment": "theorem",
+   "file": "Elements_of_Bayes_INTERIOR.tex",
+   "fingerprint": "6e77e2fd1b5e",
+   "label": "thm:gdf",
+   "number": "5.8",
+   "page": "155",
+   "printed": "Theorem 5.8",
+   "verified_fingerprint": "6e77e2fd1b5e",
+   "verified_on": "2026-11-08"
+  },
+  "gbc_ate_parametric_efficiency": {
+   "environment": "theorem",
+   "file": "Elements_of_Bayes_INTERIOR.tex",
+   "fingerprint": "7719e9a7b38e",
+   "label": "gbc:thm:efficiency",
+   "number": "12.35",
+   "page": "415",
+   "printed": "Theorem 12.35",
+   "verified_fingerprint": "7719e9a7b38e",
+   "verified_on": "2026-11-08"
+  },
+  "gbc_meu_bayes_regret": {
+   "environment": "corollary",
+   "file": "Elements_of_Bayes_INTERIOR.tex",
+   "fingerprint": "4d5502278eca",
+   "label": "gbc:cor:regret",
+   "number": "12.42",
+   "page": "422",
+   "printed": "Corollary 12.42",
+   "verified_fingerprint": "4d5502278eca",
+   "verified_on": "2026-11-08"
+  },
+  "gbc_meu_policy_posterior_contraction": {
+   "environment": "theorem",
+   "file": "Elements_of_Bayes_INTERIOR.tex",
+   "fingerprint": "47a9ef9728a0",
+   "label": "gbc:thm:contraction",
+   "number": "12.41",
+   "page": "421",
+   "printed": "Theorem 12.41",
+   "verified_fingerprint": "47a9ef9728a0",
+   "verified_on": "2026-11-08"
+  },
+  "generalized_control_variate_unification": {
+   "environment": "theorem",
+   "file": "Elements_of_Bayes_INTERIOR.tex",
+   "fingerprint": "4cb4b0ada846",
+   "label": "thm:gcv",
+   "number": "12.6",
+   "page": "394",
+   "printed": "Theorem 12.6",
+   "verified_fingerprint": "4cb4b0ada846",
+   "verified_on": "2026-11-08"
+  },
+  "horseshoe_super_efficiency_sharp_constant": {
+   "environment": "theorem",
+   "file": "Elements_of_Bayes_INTERIOR.tex",
+   "fingerprint": "ba5131b8bbb2",
+   "label": "hs:thm:super",
+   "number": "4.27",
+   "page": "122",
+   "printed": "Theorem 4.27",
+   "verified_fingerprint": "ba5131b8bbb2",
+   "verified_on": "2026-11-08"
+  },
+  "jeffreys_prior_equalizes_universal_portfolio_regret": {
+   "environment": "theorem",
+   "file": "Elements_of_Bayes_INTERIOR.tex",
+   "fingerprint": "b3e34ce9b58d",
+   "label": "up:thm:regret",
+   "number": "10.10",
+   "page": "349",
+   "printed": "Theorem 10.10",
+   "verified_fingerprint": "b3e34ce9b58d",
+   "verified_on": "2026-11-08"
+  },
+  "lifted_diagonal_collapse": {
+   "environment": "corollary",
+   "file": "Elements_of_Bayes_INTERIOR.tex",
+   "fingerprint": "0d8ce3f3b617",
+   "label": "cor:joint",
+   "number": "5.15",
+   "page": "159",
+   "printed": "Corollary 5.15",
+   "verified_fingerprint": "0d8ce3f3b617",
+   "verified_on": "2026-11-08"
+  },
+  "log_loss_uniqueness_evidence": {
+   "environment": "proposition",
+   "file": "Elements_of_Bayes_INTERIOR.tex",
+   "fingerprint": "d894ba8b83b6",
+   "label": "ev:prop:logloss",
+   "number": "6.5",
+   "page": "198",
+   "printed": "Proposition 6.5",
+   "verified_fingerprint": "d894ba8b83b6",
+   "verified_on": "2026-11-08"
+  },
+  "master_decomposition_contraction_rate": {
+   "environment": "theorem",
+   "file": "Elements_of_Bayes_INTERIOR.tex",
+   "fingerprint": "f52fe2dda636",
+   "label": "np:thm:master",
+   "number": "4.16",
+   "page": "74",
+   "printed": "Theorem 4.16",
+   "verified_fingerprint": "f52fe2dda636",
+   "verified_on": "2026-11-08"
+  },
+  "master_inequality_tuning": {
+   "environment": "corollary",
+   "file": "Elements_of_Bayes_INTERIOR.tex",
+   "fingerprint": "ee1983e6daf9",
+   "label": "cor:tuning",
+   "number": "3.3",
+   "page": "30",
+   "printed": "Corollary 3.3",
+   "verified_fingerprint": "ee1983e6daf9",
+   "verified_on": "2026-11-08"
+  },
+  "mdp_principle_for_ih_models": {
+   "environment": "conjecture",
+   "file": "Elements_of_Bayes_INTERIOR.tex",
+   "fingerprint": "84c5825c63fa",
+   "label": "nr:thm:mdp",
+   "number": "4.41",
+   "page": "138",
+   "printed": "Conjecture 4.41",
+   "verified_fingerprint": "84c5825c63fa",
+   "verified_on": "2026-11-08"
+  },
+  "mean_field_variational_anti_conservatism": {
+   "environment": "proposition",
+   "file": "Elements_of_Bayes_INTERIOR.tex",
+   "fingerprint": "03d0f7fd1aad",
+   "label": "ba:prop:vb",
+   "number": "7.33",
+   "page": "274",
+   "printed": "Proposition 7.33",
+   "verified_fingerprint": "03d0f7fd1aad",
+   "verified_on": "2026-11-08"
+  },
+  "method_of_types_e_value": {
+   "environment": "theorem",
+   "file": "Elements_of_Bayes_INTERIOR.tex",
+   "fingerprint": "e3c30b916e75",
+   "label": "ev:thm:motev",
+   "number": "12.53",
+   "page": "430",
+   "printed": "Theorem 12.53",
+   "verified_fingerprint": "e3c30b916e75",
+   "verified_on": "2026-11-08"
+  },
+  "moderate_deviation_threshold_gaussian_testing": {
+   "environment": "theorem",
+   "file": "Elements_of_Bayes_INTERIOR.tex",
+   "fingerprint": "3f46105f1276",
+   "label": "hs:thm:mdp",
+   "number": "4.32",
+   "page": "125",
+   "printed": "Theorem 4.32",
+   "verified_fingerprint": "3f46105f1276",
+   "verified_on": "2026-11-08"
+  },
+  "moderate_scale_calibration_misspecification": {
+   "environment": "proposition",
+   "file": "Elements_of_Bayes_INTERIOR.tex",
+   "fingerprint": "a6370fdeb855",
+   "label": "ba:prop:calib",
+   "number": "7.31",
+   "page": "272",
+   "printed": "Proposition 7.31",
+   "verified_fingerprint": "a6370fdeb855",
+   "verified_on": "2026-11-08"
+  },
+  "modified_abos_for_mild_cusp": {
+   "environment": "conjecture",
+   "file": "Elements_of_Bayes_INTERIOR.tex",
+   "fingerprint": "bc1bcca773a4",
+   "label": "nr:prop:mildcusp",
+   "number": "4.43",
+   "page": "139",
+   "printed": "Conjecture 4.43",
+   "verified_fingerprint": "bc1bcca773a4",
+   "verified_on": "2026-11-08"
+  },
+  "moment_gap_martingale_posterior": {
+   "environment": "proposition",
+   "file": "Elements_of_Bayes_INTERIOR.tex",
+   "fingerprint": "9001b4295da7",
+   "label": "crit:prop:gap",
+   "number": "7.8",
+   "page": "238",
+   "printed": "Proposition 7.8",
+   "verified_fingerprint": "9001b4295da7",
+   "verified_on": "2026-11-08"
+  },
+  "mutual_information_hessian_not_psd": {
+   "environment": "proposition",
+   "file": "Elements_of_Bayes_INTERIOR.tex",
+   "fingerprint": "62df6ffd1d48",
+   "label": "prop:me-notpsd",
+   "number": "5.33",
+   "page": "188",
+   "printed": "Proposition 5.33",
+   "verified_fingerprint": "62df6ffd1d48",
+   "verified_on": "2026-11-08"
+  },
+  "non_coverage_exponents_of_credible_sets": {
+   "environment": "corollary",
+   "file": "Elements_of_Bayes_INTERIOR.tex",
+   "fingerprint": "6e680890ba41",
+   "label": "ba:cor:coverage",
+   "number": "7.25",
+   "page": "260",
+   "printed": "Corollary 7.25",
+   "verified_fingerprint": "6e680890ba41",
+   "verified_on": "2026-11-08"
+  },
+  "optimal_truncation_moderate_deviation_scale": {
+   "environment": "conjecture",
+   "file": "Elements_of_Bayes_INTERIOR.tex",
+   "fingerprint": "fb63871cbdbf",
+   "label": "np:conj:ks-mdp",
+   "number": "4.15",
+   "page": "72",
+   "printed": "Conjecture 4.15",
+   "verified_fingerprint": "fb63871cbdbf",
+   "verified_on": "2026-11-08"
+  },
+  "predictive_bayes_risk_decomposition": {
+   "environment": "theorem",
+   "file": "Elements_of_Bayes_INTERIOR.tex",
+   "fingerprint": "15b5d422e2b5",
+   "label": "np:thm:abc-csiszar",
+   "number": "4.1",
+   "page": "59",
+   "printed": "Theorem 4.1",
+   "verified_fingerprint": "15b5d422e2b5",
+   "verified_on": "2026-11-08"
+  },
+  "predictive_variance_gap": {
+   "environment": "corollary",
+   "file": "Elements_of_Bayes_INTERIOR.tex",
+   "fingerprint": "41b93a31c92b",
+   "label": "crit:cor:sequential",
+   "number": "7.9",
+   "page": "238",
+   "printed": "Corollary 7.9",
+   "verified_fingerprint": "41b93a31c92b",
+   "verified_on": "2026-11-08"
+  },
+  "projected_de_finetti_limit": {
+   "environment": "theorem",
+   "file": "Elements_of_Bayes_INTERIOR.tex",
+   "fingerprint": "57f0f7032092",
+   "label": "thm:projected",
+   "number": "3.4",
+   "page": "32",
+   "printed": "Theorem 3.4",
+   "verified_fingerprint": "57f0f7032092",
+   "verified_on": "2026-11-08"
+  },
+  "projection_induced_moment_criterion": {
+   "environment": "proposition",
+   "file": "Elements_of_Bayes_INTERIOR.tex",
+   "fingerprint": "b16e4b4f03fe",
+   "label": "thm:gmm",
+   "number": "5.20",
+   "page": "163",
+   "printed": "Proposition 5.20",
+   "verified_fingerprint": "b16e4b4f03fe",
+   "verified_on": "2026-11-08"
+  },
+  "qnn_posterior_wasserstein_consistency": {
+   "environment": "theorem",
+   "file": "Elements_of_Bayes_INTERIOR.tex",
+   "fingerprint": "a0e9f3ad76b1",
+   "label": "gbc:thm:qnn",
+   "number": "12.30",
+   "page": "413",
+   "printed": "Theorem 12.30",
+   "verified_fingerprint": "a0e9f3ad76b1",
+   "verified_on": "2026-11-08"
+  },
+  "reachability_and_degeneracy": {
+   "environment": "proposition",
+   "file": "Elements_of_Bayes_INTERIOR.tex",
+   "fingerprint": "d1b72ea66c92",
+   "label": "prop:reach",
+   "number": "3.7",
+   "page": "34",
+   "printed": "Proposition 3.7",
+   "verified_fingerprint": "d1b72ea66c92",
+   "verified_on": "2026-11-08"
+  },
+  "risk_optimal_bayes_factor_threshold": {
+   "environment": "theorem",
+   "file": "Elements_of_Bayes_INTERIOR.tex",
+   "fingerprint": "98d9f6bda68e",
+   "label": "dv:thm:threshold",
+   "number": "6.9",
+   "page": "210",
+   "printed": "Theorem 6.9",
+   "verified_fingerprint": "98d9f6bda68e",
+   "verified_on": "2026-11-08"
+  },
+  "rubin_sethuraman_risk_balancing_general": {
+   "environment": "theorem",
+   "file": "Elements_of_Bayes_INTERIOR.tex",
+   "fingerprint": "41ed9fe9ae5e",
+   "label": "np:thm:rs-general",
+   "number": "4.11",
+   "page": "68",
+   "printed": "Theorem 4.11",
+   "verified_fingerprint": "41ed9fe9ae5e",
+   "verified_on": "2026-11-08"
+  },
+  "rubin_sethuraman_risk_balancing_ks": {
+   "environment": "theorem",
+   "file": "Elements_of_Bayes_INTERIOR.tex",
+   "fingerprint": "f4494d399d91",
+   "label": "np:thm:rs",
+   "number": "4.9",
+   "page": "65",
+   "printed": "Theorem 4.9",
+   "verified_fingerprint": "f4494d399d91",
+   "verified_on": "2026-11-08"
+  },
+  "scale_mixture_prior_pole_levy_measure": {
+   "environment": "proposition",
+   "file": "Elements_of_Bayes_INTERIOR.tex",
+   "fingerprint": "dd13a7a86d13",
+   "label": "hs:prop:levy",
+   "number": "4.31",
+   "page": "123",
+   "printed": "Proposition 4.31",
+   "verified_fingerprint": "dd13a7a86d13",
+   "verified_on": "2026-11-08"
+  },
+  "sequential_liftability_codelength": {
+   "environment": "theorem",
+   "file": "Elements_of_Bayes_INTERIOR.tex",
+   "fingerprint": "293b5b7b1086",
+   "label": "ev:thm:lift",
+   "number": "6.3",
+   "page": "197",
+   "printed": "Theorem 6.3",
+   "verified_fingerprint": "293b5b7b1086",
+   "verified_on": "2026-11-08"
+  },
+  "three_regimes_one_rate_function": {
+   "environment": "proposition",
+   "file": "Elements_of_Bayes_INTERIOR.tex",
+   "fingerprint": "990476ce0376",
+   "label": "ba:prop:three",
+   "number": "7.26",
+   "page": "261",
+   "printed": "Proposition 7.26",
+   "verified_fingerprint": "990476ce0376",
+   "verified_on": "2026-11-08"
+  },
+  "uniform_a_n_rule_is_cid_martingale_posterior_cdf": {
+   "environment": "theorem",
+   "file": "Elements_of_Bayes_INTERIOR.tex",
+   "fingerprint": "47fb0ebe5b97",
+   "label": "thm:cid",
+   "number": "12.17",
+   "page": "401",
+   "printed": "Theorem 12.17",
+   "verified_fingerprint": "47fb0ebe5b97",
+   "verified_on": "2026-11-08"
+  },
+  "weak_abos_at_the_boundary": {
+   "environment": "conjecture",
+   "file": "Elements_of_Bayes_INTERIOR.tex",
+   "fingerprint": "b6512541fa92",
+   "label": "nr:prop:boundary",
+   "number": "4.44",
+   "page": "139",
+   "printed": "Conjecture 4.44",
+   "verified_fingerprint": "b6512541fa92",
+   "verified_on": "2026-11-08"
+  },
+  "window_robust_collapse": {
+   "environment": "theorem",
+   "file": "Elements_of_Bayes_INTERIOR.tex",
+   "fingerprint": "984bfd26b2ac",
+   "label": "thm:window",
+   "number": "5.11",
+   "page": "156",
+   "printed": "Theorem 5.11",
+   "verified_fingerprint": "984bfd26b2ac",
+   "verified_on": "2026-11-08"
+  }
+ },
+ "updated": "2026-11-08",
+ "zenodo": {
+  "draft": {
+   "doi": "10.5281/zenodo.24067804",
+   "html": "https://zenodo.org/deposit/24067804",
+   "id": 24067804,
+   "reserved_on": "2026-11-08",
+   "version": "1.0.0"
+  }
+ }
+}

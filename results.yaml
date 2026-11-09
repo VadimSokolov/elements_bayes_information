@@ -1,0 +1,656 @@
+# results.yaml: the catalog of the book's results.
+# One entry per result that is new in the book, comes from the authors' own papers, or corrects one of those papers.
+# Results of other authors go in the chapter summaries, with their authors. Guide: references/repository.md.
+#
+# Fields:
+#   id          stable name: lowercase letters, digits and underscores; never reused for another result
+#   name        a short descriptive name; agents cite it together with the printed number
+#   label       the \label of the statement (LaTeX) or the id of its div (Quarto)
+#   chapter     the chapter key, as in book.yaml
+#   origin      book, paper:KEY or corrected:KEY, with KEY from related_papers in book.yaml
+#   status      proved, computed, conditional, open, counterexample or withdrawn
+#   conditions  for conditional: the statements the result assumes and the book does not prove
+#   erratum     for withdrawn: what was wrong, and the version that corrects it
+#   highlight   true for the 3 to 8 results that the README and the website feature
+#   summary     one sentence in plain words
+#   statement   the result as the book states it, with the same hypotheses, quantifiers, constants and rates; standard LaTeX only, no book macros
+#   supersedes  optional: the statement this one replaces, e.g. the version in a paper
+#
+# bookrepo.py inventory prints a stub for every labeled theorem, proposition, lemma, corollary, conjecture and open question.
+#
+# - id: adjoint_statistic_sufficient
+#   name: The adjoint statistic is sufficient
+#   label: m:lem:adjoint
+#   chapter: "15"
+#   origin: book
+#   status: proved
+#   highlight: true
+#   summary: For a linear forward map with Gaussian noise, the adjoint of the forward map applied to the data is a sufficient statistic.
+#   statement: >-
+#     Let $G$ be a bounded linear map ... Then $G^* Y$ is sufficient for $\theta$.
+
+- id: constrained_horizon_master_inequality
+  name: Componentwise constrained horizon master inequality
+  label: thm:master
+  chapter: '3'
+  origin: paper:pz2025a
+  status: proved
+  highlight: true
+  summary: A fixed block of coordinates drawn from a sample conditioned on a moment window is close in total variation to independent draws from the I projection, with an explicit finite sample bound with three separately controlled terms.
+  statement: >-
+    Let the alphabet have k elements, let P be a law with min_x P(x)>0, and let E be a nonempty closed convex polyhedral set of laws defined by finitely many linear moment equalities and inequalities, with window E_eps obtained by relaxing each bound by eps. Let P^star be the I projection of P onto E, assume min_x P^star(x)>0, and assume strong regularity of the windowed projections, ||P^star_eps - P^star_eps'||_TV <= C_0 |eps - eps'|. Let eps_N decrease to 0 with N eps_N > c_rnd eventually, where c_rnd/N bounds the shift of each moment under rounding to a type with denominator N. Let L_{N,I,P} be the law of the coordinates X_I of an i.i.d. P sample of size N conditioned on the empirical measure lying in E_{eps_N}. Then there is C(P,E)<infinity such that for all large N, every m element index set I and every delta>0, the total variation distance between L_{N,I,P} and the m fold product of P^star is at most m delta + m(m-1)/(2N) + C(P,E)(N+1)^{2k} exp(-2N delta^2) + C_0 m eps_N.
+- id: master_inequality_tuning
+  name: Tuned rate for the constrained block law
+  label: cor:tuning
+  chapter: '3'
+  origin: paper:pz2025a
+  status: proved
+  highlight: false
+  summary: Choosing the split radius of order the square root of log N over N gives a block law rate of order m eps_N plus m sqrt(log N / N) plus m squared over N.
+  statement: >-
+    Under the hypotheses of the componentwise constrained horizon master inequality, taking delta_N = sqrt((k+1) log(N+1)/N) gives, for fixed m, that the total variation distance between the constrained block law L_{N,I,P} and the m fold product of the I projection P^star is O(m eps_N + m sqrt(log N / N) + m^2/N), where k is the alphabet size and eps_N is the window width.
+- id: projected_de_finetti_limit
+  name: Projected de Finetti limit
+  label: thm:projected
+  chapter: '3'
+  origin: paper:pz2025a
+  status: proved
+  highlight: true
+  summary: After mixing over the constraint posterior, the block laws of an exchangeable sequence conditioned on a moment event converge to an exchangeable law whose random directing measure is the I projection of the original directing measure.
+  statement: >-
+    Let Pi be a prior on laws mu over a finite alphabet, let E be a closed convex set of laws given by finitely many linear moment equalities and inequalities, with window E_eps obtained by relaxing each bound by eps, and let eps_N be window widths. Let T_E(mu) be the I projection of mu onto E, the minimizer of D(Q||mu) over Q in E; let Q_{N,mu} be the law of an i.i.d. mu sequence conditioned on the empirical measure Phat_N of its first N terms lying in E_{eps_N}; and let Pi_{N,E} be the constraint posterior, proportional to P_mu(Phat_N in E_{eps_N}) Pi(d mu). Suppose (i) Pi_{N,E} converges weakly to a law Pi_E; (ii) T_E is continuous on a neighborhood of the support of Pi_E; and (iii) for every fixed m, the Pi_{N,E}-average of the total variation distance between Q_{N,mu}(X_{1:m} in .) and T_E(mu)^{otimes m} tends to 0. Then for every fixed m and every sequence of m element index sets I_N, the law of X_{I_N} under the mixture of the Q_{N,mu} over Pi_{N,E} converges in total variation to the integral of T_E(mu)^{otimes m} against Pi_E(d mu). With Pitilde_E the pushforward of Pi_E under T_E, the laws given by the integrals of q^{otimes m} against Pitilde_E(dq) are projectively consistent and define an infinite exchangeable law whose random directing measure is Q^star = T_E(mu) with mu distributed as Pi_E.
+- id: bayesian_prediction_under_constrained_limit
+  name: Bayesian prediction under the constrained limit
+  label: cor:predict
+  chapter: '3'
+  origin: paper:pz2025a
+  status: proved
+  highlight: false
+  summary: Under the projected de Finetti limit, the predictive probability of the next observation is the usual de Finetti posterior predictive under the prior induced by the I projection map.
+  statement: >-
+    Let Pi_E be a law on laws mu over a finite alphabet (in the projected de Finetti limit, the weak limit of the constraint posterior), let P^star_mu be the I projection of mu onto a closed convex constraint set E, and let Ptilde_E be the infinite exchangeable law whose random directing measure is Q^star = P^star_mu with mu distributed as Pi_E. For fixed t and a history x_1, ..., x_t of positive probability under Ptilde_E, Ptilde_E(X_{t+1} = x | X_{1:t} = x_{1:t}) equals the integral of P^star_mu(x) prod_{j<=t} P^star_mu(x_j) against Pi_E(d mu) divided by the integral of prod_{j<=t} P^star_mu(x_j) against Pi_E(d mu). This is the standard de Finetti posterior predictive under the induced prior, the pushforward of Pi_E under mu -> P^star_mu, and Ptilde_E(X_{t+1} in . | X_{1:t}) converges almost surely to Q^star.
+- id: reachability_and_degeneracy
+  name: Reachability and degeneracy of moment constraints
+  label: prop:reach
+  chapter: '3'
+  origin: paper:pz2025a
+  status: conditional
+  conditions:
+    - proofs of its four clauses, which the book states without proof, in particular the concentration rate max(eps_N, N^{-1/2}) and the disintegration limit in clause (ii) and the transverse dimension k-1-r_0 in clause (iv)
+  highlight: false
+  summary: Whether a moment constraint is reachable by the prior decides whether the I projection acts, with reachable constraints truncating or disintegrating the prior, unreachable ones leaving genuine tilts, and affine constraints able to collapse the randomness; the book states this without proof.
+  statement: >-
+    Let Pi be a prior on laws mu over a finite alphabet with k elements, let E be the polyhedral set of laws Q with <g_j,Q> = alpha_j for j <= r_0 and <g_j,Q> >= alpha_j for r_0 < j <= r, let E_eps be its window obtained by relaxing each bound by eps, let E_N be the event that the empirical measure Phat_N of N observations lies in E_{eps_N}, let Pi_{N,E}(d mu) be proportional to P_mu(E_N) Pi(d mu) (the constraint posterior), let Pi_E be its weak limit, let T_E(mu) be the I projection of mu onto E, and let I_E(mu) = inf over Q in E of D(Q||mu), which vanishes exactly on E. Pointwise in mu, (1/N) log P_mu(E_N) tends to -I_E(mu), so Pi_{N,E}(d mu) is proportional to exp(-N I_E(mu) + o_mu(N)) Pi(d mu). (i) If Pi(E) > 0 and Pi assigns zero mass to the boundary of E in the simplex, then Pi_E is Pi conditioned on E and T_E is the identity on E. (ii) If Pi(E) = 0 but E meets the support of Pi, then Pi_{N,E} concentrates on E at rate max(eps_N, N^{-1/2}), Pi_E is the disintegration of Pi along the moment map at alpha, and T_E is the identity on E. (iii) If I^star = inf over the support of Pi of I_E is positive, then Pi_{N,E} concentrates on the set where I_E = I^star and the surviving components are genuine tilts. (iv) For affine E with r_0 equality constraints, T_E(mu) = T_E(nu) if and only if mu and nu lie in a common orbit of the exponential family generated by g_1, ..., g_{r_0}, and the surviving randomness is the component of Pi_E transverse to the tilt family, of dimension k-1-r_0.
+- id: predictive_bayes_risk_decomposition
+  name: Decomposition of nonparametric predictive Bayes risk into Sanov and contraction terms
+  label: np:thm:abc-csiszar
+  chapter: '4'
+  origin: paper:pz2026i
+  status: proved
+  highlight: true
+  summary: The predictive KL Bayes risk splits into a population Sanov term, a posterior contraction term and a small cross term, so misspecified models have risk equal to the Sanov term and well specified ones have risk equal to the contraction term.
+  statement: >-
+    Let P_0 be a law on [0,1] with Lebesgue density p_0 satisfying 0 < c_0 <= p_0 <= C_0 < infinity and log p_0 in the Holder class H^beta(L) for some beta in (0, B] and L < infinity. Let the prior Pi have convex, Kullback Leibler closed support on which P -> D(P_0 || P) attains its infimum at a unique element Pi^* P_0 (the reverse I projection), whose density pi^* satisfies c_0 <= pi^* <= C_0. Assume Hellinger contraction: for some epsilon_n -> 0 with n epsilon_n^2 -> infinity and constants M, c > 0, the posterior mass of { P : d_H(P, Pi^* P_0) > M epsilon_n } is at most exp(-c n epsilon_n^2) in P_0^{\otimes n} probability, where d_H^2(P, Q) = (1/2) integral (sqrt p - sqrt q)^2 dx. Assume the Wong and Shen condition: there are eta > 0, M_WS >= 1 and C_WS < infinity with D(pi^* || p) <= C_WS d_H(P, Pi^* P_0)^2 whenever d_H(P, Pi^* P_0) <= eta and pi^* <= M_WS p. Let hat p_Pi be the posterior predictive density, R_KL(P_0; hat p_Pi) = E_{P_0^{\otimes n}} D(p_0 || hat p_Pi) and J_n(Pi, P_0) = E_{P_0^{\otimes n}} D(Pi^* P_0 || hat p_Pi). Then R_KL(P_0; hat p_Pi) = D(P_0 || Pi^* P_0) + J_n(Pi, P_0) + r_n, where |r_n| <= C ( sqrt(D(P_0 || Pi^* P_0) J_n(Pi, P_0)) + J_n(Pi, P_0) ) with C = e C_0 / c_0. If J_n -> 0 and D(P_0 || Pi^* P_0) > 0 then R_KL = D(P_0 || Pi^* P_0)(1 + o(1)); if D(P_0 || Pi^* P_0) = 0 then R_KL = J_n(Pi, P_0)(1 + o(1)).
+- id: conditional_sanov_tilted_de_finetti
+  name: Conditional Sanov and tilted de Finetti
+  label: np:thm:tilted
+  chapter: '4'
+  origin: paper:pz2025a
+  status: proved
+  highlight: false
+  summary: Conditioned on the empirical measure lying in a closed convex set, the predictive law of a fixed block converges to the I projection of the de Finetti baseline onto that set.
+  statement: >-
+    Let (X_i) be infinitely exchangeable with de Finetti mixing measure Pi, and let E be a closed convex subset of the probability measures with inf over P in E of D(P || Pi^dagger) finite, for a de Finetti baseline Pi^dagger. Conditional on the event that the empirical measure of X_1, ..., X_n lies in E, the predictive law of any fixed block of size m converges to P^circ = argmin over P in E of D(P || Pi^dagger), at rate O(m / n^{1/3}).
+- id: rubin_sethuraman_risk_balancing_ks
+  name: Bayes risk optimal Kolmogorov Smirnov threshold at the moderate deviation scale
+  label: np:thm:rs
+  chapter: '4'
+  origin: paper:psz2026b
+  status: proved
+  highlight: false
+  summary: The Bayes risk optimal Kolmogorov Smirnov threshold sits at about half the detection distance, with the exact constant 3/8 and risk of order n to the minus 25/16 at the boundary Delta_n = sqrt(2 log n) with prior odds n.
+  statement: >-
+    For the Kolmogorov Smirnov test of the book with Type I error given by Kolmogorov's tail and Type II error equal to the stated bound on the Pitman family with detection scale Delta_n, and prior odds b_n = pi_1 / pi_0, the unique Bayes risk minimizing threshold is c_n^* = Delta_n / 2 - (log b_n) / (4 Delta_n) (1 + o(1)). In the interior regime log b_n = o(Delta_n^2), c_n^* = (1/2) Delta_n (1 + o(1)) and the minimum Bayes risk is B_n(c_n^*) = 4 pi_0 sqrt(b_n) exp( -Delta_n^2 / 2 - (log b_n)^2 / (8 Delta_n^2) ) (1 + o(1)) = O( b_n^{-1/2} e^{-Delta_n^2/2} ). At the boundary Delta_n = sqrt(2 log n), b_n = n, one has c_n^* = (3/8) Delta_n (1 + o(1)) and B_n(c_n^*) = Theta(n^{-25/16}).
+- id: rubin_sethuraman_risk_balancing_general
+  name: General moderate deviation risk balancing threshold for tests
+  label: np:thm:rs-general
+  chapter: '4'
+  origin: paper:dpsz2026
+  status: proved
+  highlight: false
+  summary: For any statistic with Gaussian type moderate deviation tails under null and alternative, the Bayes risk optimal threshold is half the detection scale plus a prior odds correction, and it is at least the multiple comparison scale sqrt(2 log b_n).
+  statement: >-
+    Let T_n / sigma_n converge in law to a nondegenerate limit Z, and let the alternatives sit at detection scale Delta_n -> infinity with P_0(T_n > a sigma_n) = exp(-a^2/2 + o(Delta_n^2)) and P_1(T_n <= a sigma_n) = exp(-(Delta_n - a)^2/2 + o(Delta_n^2)) uniformly in 0 < a < Delta_n. For the Bayes risk R_n(a) = pi_0 P_0(T_n > a sigma_n) + pi_1 P_1(T_n <= a sigma_n) with log(pi_0 / pi_1) / Delta_n^2 -> lambda in (-1/2, 1/2), every Bayes risk minimizing threshold satisfies a_n^* = ( Delta_n / 2 + log(pi_0/pi_1) / Delta_n )(1 + o(1)) and R_n(a_n^*) = pi_0 exp( -(a_n^*)^2/2 + o(Delta_n^2) ). When pi_0 / pi_1 = b_n >= 1, a_n^* >= sqrt(2 log b_n) (1 + o(1)) and R_n(a_n^*) <= pi_1 < 1 / b_n.
+- id: optimal_truncation_moderate_deviation_scale
+  name: Optimal truncation at the moderate deviation scale
+  label: np:conj:ks-mdp
+  chapter: '4'
+  origin: book
+  status: open
+  highlight: false
+  summary: The book conjectures that the Bayes risk optimal truncation level for a Kolmogorov Smirnov truncated predictive density equals the detection distance, which is sqrt(2 log n) at the detection boundary, and gives a heuristic only.
+  statement: >-
+    Under the density, Holder, convex support, Hellinger contraction and Wong and Shen assumptions of the predictive Bayes risk decomposition (a density p_0 bounded away from 0 and infinity with log p_0 Holder, a prior with convex Kullback Leibler closed support and reverse I projection Pi^* P_0 with density bounded above and below, Hellinger contraction at rate epsilon_n, and the Wong and Shen condition), let P_0 (possibly depending on n) have CDF F_{P_0} and let Delta_n = sqrt(n) sup_x |F_{P_0}(x) - F_Pi^*(x)|, where F_Pi^* is the CDF of the reverse I projection Pi^* P_0. If Delta_n -> infinity and h_n Delta_n^2 -> infinity, then the Bayes risk optimal truncation level a_n^* of the truncated predictive density of the book satisfies a_n^* = Delta_n (1 + o(1)). In particular at Delta_n = sqrt(2 log n) with h_n log n -> infinity, a_n^* = sqrt(2 log n) (1 + o(1)).
+- id: master_decomposition_contraction_rate
+  name: Master decomposition and the contraction term rate
+  label: np:thm:master
+  chapter: '4'
+  origin: paper:pz2026i
+  status: proved
+  highlight: false
+  summary: Hellinger posterior contraction at rate epsilon_n gives a contraction term of order epsilon_n squared in the predictive risk decomposition, via the Wong and Shen conversion of Hellinger to KL.
+  statement: >-
+    Under the assumptions of the predictive Bayes risk decomposition (a density p_0 bounded away from 0 and infinity with log p_0 Holder, a prior with convex Kullback Leibler closed support and reverse I projection Pi^* P_0 with density pi^* bounded above and below, and Hellinger contraction at rate epsilon_n), let U_n = { P : d_H(P, Pi^* P_0) <= M epsilon_n and pi^* <= M_WS p }, with epsilon_n the Hellinger contraction rate and M_WS the Wong and Shen constant. If E_{P_0^{\otimes n}} of the posterior integral over the complement of U_n of D(pi^* || p) is O(epsilon_n^2), then J_n(Pi, P_0) = O(epsilon_n^2). For a prior adapting over a grid of size b_n, epsilon_n is the contraction rate of the adaptive posterior.
+- id: adaptive_dpm_rate
+  name: Adaptive Dirichlet process mixture predictive rate
+  label: np:thm:dp
+  chapter: '4'
+  origin: paper:pz2026i
+  status: conditional
+  conditions:
+    - the data driven bandwidth stays within constant factors of the optimal bandwidth, which the book assumes and does not prove
+  highlight: false
+  summary: A Dirichlet process mixture of Gaussians attains the near minimax predictive KL rate for Holder smooth densities with a log n factor, given a sketch proof that assumes the bandwidth stays near its optimum.
+  statement: >-
+    For a density p_0 in the Holder class H^beta(L) with beta in (0, B] unknown, if the data driven bandwidth of the Dirichlet process mixture of Gaussians stays within constant factors of h_n^* = n^{-1/(2 beta + 1)}, then J_n(DPM, P_0) is bounded above, up to a constant, by n^{-2 beta/(2 beta + 1)} log n.
+- id: adaptive_polya_tree_rate
+  name: Adaptive Polya tree predictive rate
+  label: np:thm:pt
+  chapter: '4'
+  origin: paper:pz2026i
+  status: conditional
+  conditions:
+    - the marginal likelihood truncation level stays within O(1) of the optimal level, which the book assumes and does not prove
+  highlight: false
+  summary: A canonical Polya tree attains the predictive KL rate n to the minus 2 beta over 2 beta plus 1 up to a log n factor for smoothness below one, given a sketch proof that assumes the selected level is near optimal.
+  statement: >-
+    For p_0 in the Holder class H^beta(L) with beta in (0, 1) unknown, if the marginal likelihood truncation level of the canonical Polya tree stays within O(1) of L_n^* = (log_2 n) / (2 beta + 1), then J_n(PT, P_0) is bounded above, up to a constant, by n^{-2 beta/(2 beta + 1)} log n.
+- id: adaptive_logistic_gaussian_process_rate
+  name: Adaptive logistic Gaussian process predictive rate
+  label: np:thm:gp
+  chapter: '4'
+  origin: paper:pz2026i
+  status: conditional
+  conditions:
+    - the posterior contracts in Hellinger at the rate that van der Vaart and van Zanten (2009) prove for the squared exponential kernel
+    - the remaining hypotheses of the master decomposition theorem (its density and Wong and Shen assumptions and its tail condition, that the posterior expected divergence D(pi^* || p) over laws P with d_H(P, Pi^* P_0) > M epsilon_n or pi^* > M_WS p is O(epsilon_n^2)), which the book assumes and does not check for this prior
+  highlight: false
+  summary: A logistic Gaussian process prior attains the predictive KL rate with a polylog factor of exponent (4 beta + 1)/(2 beta + 1), assuming the posterior contraction rate of van der Vaart and van Zanten.
+  statement: >-
+    For p_0 in the Holder class H^beta(L) with beta in (0, B] unknown, and a logistic Gaussian process prior with rescaled Matern nu kernel K_A(x, y) = K((x - y)/A), nu >= B, and a length scale hyperprior on [1, n^{1/(2 nu + 1)}], J_n(LGP, P_0) is bounded above, up to a constant, by n^{-2 beta/(2 beta + 1)} (log n)^{kappa(beta)} with kappa(beta) = (4 beta + 1)/(2 beta + 1), twice the polylog exponent of van der Vaart and van Zanten (2009), provided the posterior contracts in Hellinger at the rate n^{-beta/(2 beta + 1)} (log n)^{(4 beta + 1)/(4 beta + 2)} that they prove for the squared exponential kernel, and the remaining hypotheses of the master decomposition theorem (its density and Wong and Shen assumptions and its tail condition) hold.
+- id: moderate_deviation_threshold_gaussian_testing
+  name: Moderate deviation risk optimal testing boundary for the normal mean
+  label: hs:thm:mdp
+  chapter: '4'
+  origin: paper:dpsz2026
+  status: proved
+  highlight: false
+  summary: For a point null test of a normal mean under zero one loss, the risk optimal boundary on the standardized mean squares to log n plus a prior and Fisher information dependent constant.
+  statement: >-
+    Let the sample mean be N(theta, sigma^2/n) with sigma known, and test H_0: theta = 0 against H_a: theta != 0, with a prior under H_a that is C^3 with at most polynomial growth and density pi(0) = c_pi in (0, infinity) at the origin. Under 0-1 loss with prior weights pi_0 and pi_a, both positive, the risk optimal boundary t_crit on the standardized mean sqrt(n) |xbar| / sigma satisfies t_crit^2 = log n + log(c_pi^{-2}) - log(2 pi sigma^2) + 2 log(pi_0 / pi_a) + O( sqrt((log n)/n) ). The leading term log n is universal across regular models and priors, and the additive constants depend on c_pi, the Fisher information and the prior model odds.
+- id: scale_mixture_prior_pole_levy_measure
+  name: Pole of a scale mixture prior at the origin from its Levy measure
+  label: hs:prop:levy
+  chapter: '4'
+  origin: paper:psz2026c
+  status: proved
+  highlight: false
+  summary: A power law Levy measure of exponent gamma near zero gives a bounded prior density at the origin for gamma below one half, a logarithmic pole at one half, and a power pole of exponent 2 gamma minus 1 above one half.
+  statement: >-
+    For a scale mixture of normals prior pi(theta) with mixing (Levy) measure nu(ds) = s^{-gamma} ds on (0, 1), with the part on s >= 1 contributing a bounded term, pi(theta) = 2^{gamma - 1/2} / sqrt(2 pi) |theta|^{1 - 2 gamma} times the integral from theta^2/2 to infinity of u^{gamma - 3/2} e^{-u} du, plus O(1). As theta -> 0 the integral stays bounded if and only if gamma > 1/2, and then pi(theta) ~ C_gamma |theta|^{1 - 2 gamma} with C_gamma = 2^{gamma - 1/2} Gamma(gamma - 1/2) / sqrt(2 pi). Hence pi(0) is finite for gamma < 1/2, pi(theta) is of order -log|theta| for gamma = 1/2, and pi(theta) is of order |theta|^{-alpha_0} with alpha_0 = 2 gamma - 1 for gamma > 1/2.
+- id: mdp_principle_for_ih_models
+  name: Moderate deviation principle for non regular Ibragimov and Has'minskii models
+  label: nr:thm:mdp
+  chapter: '4'
+  origin: book
+  status: open
+  highlight: false
+  summary: For non regular models of the Ibragimov and Has'minskii classification whose limiting Bayes factor has a power law tail, the book conjectures that the optimal threshold is sqrt(gamma_p log n) in rate scaled coordinates.
+  statement: >-
+    Conjecture. Let a non regular location model of the Ibragimov and Has'minskii (IH) classification have posterior concentration rate n^p with p = 1/2 and limiting likelihood ratio process Z(u), and suppose the limiting Bayes factor, the integral of Z(u) du, has null tail P(integral Z(u) du > t) = t^{-gamma_p + o(1)} for some gamma_p >= 1. Under symmetric 0-1 loss and a prior pi(theta) positive and smooth at theta_0, the Bayes risk optimal threshold in n^p scaled coordinates is t_crit^{(p)} = sqrt(gamma_p log n) + o(sqrt(log n)), and both Type I and Type II Bayes risks decay as n^{-gamma_p/2 + o(1)}. On the original scale, |theta|_crit = n^{-p} sqrt(gamma_p log n).
+- id: modified_abos_for_mild_cusp
+  name: Modified asymptotic Bayes optimality under sparsity for the mild cusp
+  label: nr:prop:mildcusp
+  chapter: '4'
+  origin: book
+  status: open
+  highlight: false
+  summary: For exponential power noise with shape between one half and one, the horseshoe is conjectured to be within a factor 2 over beta of the oracle Bayes risk.
+  statement: >-
+    Conjecture. For the exponential power location family EP(beta), with density beta / (2 Gamma(1/beta)) exp(-|x - theta|^beta), beta in (1/2, 1), sparsity pi_n -> 0 and signal strength mu_n = n^{-1/2} sqrt((2/beta) log n), the horseshoe with global scale tau of order pi_n satisfies 1 <= limsup_{n} BR_n^horseshoe / BR_n^oracle <= 2 / beta, where BR_n is the Bayes risk of the multiple testing rule.
+- id: weak_abos_at_the_boundary
+  name: Weak ABOS for the horseshoe at the boundary beta one half
+  label: nr:prop:boundary
+  chapter: '4'
+  origin: book
+  status: open
+  highlight: false
+  summary: At exponential power shape one half the horseshoe is conjectured to be within a constant factor of the oracle but not asymptotically Bayes optimal.
+  statement: >-
+    Conjecture. For the exponential power location family EP(beta) with beta = 1/2, the horseshoe attains BR_n^horseshoe = O(BR_n^oracle), but exact asymptotic Bayes optimality under sparsity fails: there is a constant C_* in (1, infinity) with limsup_{n} BR_n^horseshoe / BR_n^oracle = C_*.
+- id: abos_failure_for_strong_cusp
+  name: Failure of asymptotic Bayes optimality for the strong cusp
+  label: nr:prop:strongcusp
+  chapter: '4'
+  origin: book
+  status: open
+  highlight: false
+  summary: For exponential power shape below one half the horseshoe Bayes risk is conjectured to be infinitely larger than the oracle risk in the limit.
+  statement: >-
+    Conjecture. For the exponential power location family EP(beta) with beta < 1/2, liminf_{n} BR_n^horseshoe / BR_n^oracle = infinity.
+- id: abos_of_the_beta_horseshoe
+  name: ABOS of the beta horseshoe for exponential power noise
+  label: nr:thm:betaHS
+  chapter: '4'
+  origin: book
+  status: open
+  highlight: false
+  summary: A beta horseshoe prior matched to the exponential power shape is conjectured to be asymptotically Bayes optimal under sparsity, for shapes in (1/2, 2) with one tuning and for shapes at most 1/2 with another.
+  statement: >-
+    Conjecture. (i) For EP(beta') with beta' in (1/2, 2), sparsity pi_n -> 0 and signal strength mu_n = n^{-p(beta')} sqrt((2/beta') log n), the beta' horseshoe with tau of order pi_n satisfies BR_n^{beta'-HS} / BR_n^oracle -> 1. (ii) For EP(beta') with beta' <= 1/2, the beta' horseshoe with tau of order pi_n^{1/(2 beta')} and polynomial scale threshold t_crit^{(p)} = n^{p(1/(2 beta') - 1)} achieves BR_n^{beta'-HS} / BR_n^oracle -> 1.
+- id: horseshoe_super_efficiency_sharp_constant
+  name: Sharp log log n term in horseshoe super efficiency
+  label: hs:thm:super
+  chapter: '4'
+  origin: book
+  status: conditional
+  conditions:
+    - the sharp lower bound, which the book gives only in outline, namely that n R_n = (1/2) log(n/2 pi) - 1/2 - E_0 log m_n(ybar) with the marginal density m_n of the sample mean kept below a constant multiple of log n, so that the sharp coefficient of log log n is proved only as an upper bound
+  highlight: false
+  summary: At a zero mean the horseshoe's Cesaro average predictive Kullback Leibler risk is (half log n minus one log log n) over n, which sharpens the order of magnitude rate of Carvalho, Polson and Scott (2010) to a log log n coefficient, with the upper bound proved and the matching lower bound given only in outline.
+  statement: >-
+    Let y_1, y_2, ... be independent N(theta_0, sigma^2) and let R_n = n^{-1} sum_{j=1}^{n} E D(p_{theta_0} || hat p_j) be the Cesaro average Kullback Leibler risk of the Bayes predictive density hat p_j after j - 1 observations. Under the horseshoe prior with theta_0 = 0, R_n = n^{-1}( (1/2) log n - log log n + O(1) ).
+- id: exchangeable_block_collapse
+  name: Exchangeable block collapse under moment conditioning
+  label: thm:collapse
+  chapter: '5'
+  origin: paper:pz2025b
+  status: conditional
+  conditions:
+    - the Gaussian localization theorem on the constraint chart, whose proof the book only outlines, deferring the bad type suppression and good type Gaussian control lemmas and the fixed chart remainder constants to the Supplementary Material of the source paper; the step from localization to the collapse bound is proved in the book
+  highlight: false
+  summary: Conditioning an independent sample on its empirical moments makes any fixed block of draws asymptotically independent from the I projection, with an explicit total variation bound in the block size and the reduced Hessian.
+  statement: >-
+    Fix a moment adequate finite partition of the sample space with $k_r$ cells, cell level reference law $q_r$, and let $p_r^*$ be the I projection of $q_r$ onto the moment constraint, with reduced Hessian $H_r^*$ on the constraint chart. Under the log moment generating function of the moment map under the baseline law is essentially smooth and steep, the target lies in the gradient image of the interior of its domain, and its Hessian at the solution is positive definite and lattice regularity, in the exact feasibility case along the cofinal set of sample sizes $n$ for which the constraint is exactly attainable, and for $1\le m\le n$, the law $\mu_{n,m}^{(r)}$ of a block of $m$ draws from the sample conditioned on its empirical moments satisfies $\|\mu_{n,m}^{(r)}-(p_r^*)^{\otimes m}\|_{TV}\le C_r\bigl[m\,(k_r\,\mathrm{tr}\{(H_r^*)^{-1}\}/n)^{1/2}+m(m-1)/n+(1+m)(\log n)^{3/2}/\sqrt n\bigr]$, with a constant $C_r$ depending only on the chart. In particular, for every fixed $r$ and fixed block size $m$ the right side tends to $0$ as $n\to\infty$.
+- id: window_robust_collapse
+  name: Window robust collapse without lattice regularity
+  label: thm:window
+  chapter: '5'
+  origin: paper:pz2025b
+  status: conditional
+  conditions:
+    - the conditional concentration of the empirical cell frequencies around the slab minimizer at rate the square root of log n over n, and the distance of order the tolerance between the slab minimizer and the I projection, both cited in the book's outline proof from the Supplementary Material of the source paper
+  highlight: false
+  summary: For generic real valued moments, where exact feasibility fails, conditioning on a shrinking tolerance window still makes a fixed block asymptotically independent from the I projection, with a coarser rate.
+  statement: >-
+    Fix a moment adequate finite partition and let the regularity assumption of the section hold. Take a moment tolerance $\eta_n$ with $\eta_n\to0$ and $n\eta_n\to\infty$; lattice regularity is not assumed. Then for $1\le m\le n$ the law $\mu_{n,m}^{(r)}$ of a block of $m$ draws from the sample conditioned to satisfy its moment constraint within tolerance $\eta_n$ obeys $\|\mu_{n,m}^{(r)}-(p_r^*)^{\otimes m}\|_{TV}\le C_r\bigl(m\eta_n+m\sqrt{(\log n)/n}+m^2/n\bigr)$, where $p_r^*$ is the I projection onto the exact constraint and $C_r$ depends only on the chart.
+- id: gaussian_localization_constraint_chart
+  name: Gaussian localization on the constraint chart
+  label: thm:gdf
+  chapter: '5'
+  origin: paper:pz2025b
+  status: conditional
+  conditions:
+    - the bad type suppression and good type Gaussian control lemmas and the fixed chart Taylor, Stirling and coarea remainder constants, which the book states with outline proofs only and defers to the Supplementary Material of the source paper
+  highlight: false
+  summary: The conditioned predictive law of a block is a Gaussian mixture of product laws centered at the I projection, with precision given by the reduced Hessian.
+  statement: >-
+    Fix a moment adequate finite partition, assume the regularity assumption of the section and lattice regularity, and work in the exact feasibility case along the cofinal set of sample sizes $n$ where the constraint is exactly attainable. For $1\le m\le n$ the constrained predictive law of a block of $m$ draws satisfies $\mu_{n,m}^{(r)}(A)=\int_{\|v\|_2\le\rho_n}\{p_r^*(v)\}^{\otimes m}(A)\,\varphi_{H_r^*}(v)\,dv+R_{n,m,r}(A)$, where $p_r^*(v)=p_r^*+V_rv/\sqrt n$, $V_r$ is a basis of the tangent space of the constraint chart at the I projection $p_r^*$, $\varphi_{H_r^*}$ is the Gaussian density on $\mathbb R^{s_r}$, $s_r$ the dimension of the tangent space, with precision the reduced Hessian $H_r^*$, and $\rho_n$ is the localization radius of the section. For fixed $r$, $\sup_A|R_{n,m,r}(A)|\le C_r\{(1+m)\,n^{-1/2}(\log n)^{3/2}+m^2/n\}$.
+- id: projection_induced_moment_criterion
+  name: Projection induced moment criterion is a generalized method of moments
+  label: thm:gmm
+  chapter: '5'
+  origin: paper:pz2025b
+  status: conditional
+  conditions:
+    - the dual expansion proof in the Supplementary Material of the source paper, which the book does not reproduce
+  highlight: false
+  summary: The negative log of the induced conditional likelihood is locally a quadratic form in the moment residuals weighted by the inverse cell moment covariance, as in efficient generalized method of moments.
+  statement: >-
+    Fix a cell moment matrix $A_r$ and a twice continuously differentiable moment target $\alpha(\theta)$. Suppose the cell labels are independent with law $p_{\theta_0,r}^*$, the parameter $\theta_0$ is locally identified, and the cell moment covariance $\Omega_{\theta,r}=A_r\Sigma_{\theta,r}A_r^\top$ is nonsingular near $\theta_0$, where $\Sigma_{\theta,r}=\mathrm{diag}(p_{\theta,r}^*)-p_{\theta,r}^*p_{\theta,r}^{*\top}$. Suppose also that with probability tending to one the empirical cell moment $A_r\hat P_n^{(r)}$ lies in the relative interior of the finite mean domain, so its dual solution exists. Then, uniformly over $\|\theta-\theta_0\|_2\le Cn^{-1/2}$ and up to an additive term not depending on $\theta$, the negative log induced conditional likelihood equals $\tfrac n2\,\bar g_{n,r}(\theta)^\top W_{\theta,r}\,\bar g_{n,r}(\theta)+O_P(n^{-1/2})$, where $\bar g_{n,r}(\theta)=A_r\hat P_n^{(r)}-\alpha(\theta)$ with $\hat P_n^{(r)}$ the empirical cell frequencies and $p_{\theta,r}^*$ the I projection of the cell reference law onto the constraint with target $\alpha(\theta)$ and the weight is $W_{\theta,r}=\Omega_{\theta,r}^{-1}$. The parameter information is $\dot\alpha(\theta)^\top\Omega_{\theta,r}^{-1}\dot\alpha(\theta)$, the optimal covariance weighting of generalized method of moments.
+- id: mutual_information_hessian_not_psd
+  name: Mutual information Hessian in the channel parameter need not be positive semidefinite
+  label: prop:me-notpsd
+  chapter: '5'
+  origin: paper:pz2026d
+  status: counterexample
+  highlight: false
+  summary: The second derivative of mutual information with respect to a softmax channel parameter can be negative, so a published identification diagnostic that treats it as positive semidefinite is not valid.
+  statement: >-
+    The Hessian $\nabla^2_\theta I_\theta$ of the mutual information $I_\theta=I(X;Y)$ with respect to the parameter $\theta$ of a parametric channel $q_\theta(y\mid x)$ need not be positive semidefinite. Example: let $Y$ take $J=2$ values, let $x=\pm1$ with probability $1/2$ each and $q_\theta(1\mid x)=s(\theta x)$ with $s(z)=1/(1+e^{-z})$. Then the marginal of $Y$ is uniform for every $\theta$, $I_\theta=\log2+s\log s+(1-s)\log(1-s)$ with $s=s(\theta)$, and $I_\theta''=s(1-s)\{1-\theta\tanh(\theta/2)\}$, which is negative for $|\theta|>1.55$.
+- id: lifted_diagonal_collapse
+  name: Lifted collapse to the ambient predictive law under refinement
+  label: cor:joint
+  chapter: '5'
+  origin: paper:pz2025b
+  status: conditional
+  conditions:
+    - the projection approximation lemma (Lemma S3 of the Supplementary Material of the source paper), which bounds the total variation between the lifted chart projection and the ambient I projection by the cell oscillation, and the window robust collapse bound
+  highlight: false
+  summary: Letting the partition refine slowly with the sample size, the conditioned block law lifted back to the sample space converges to independent draws from the ambient I projection.
+  statement: >-
+    Fix the block size $m$, take every partition $\Pi_r$ of a refining sequence moment adequate, and lift the chart predictive law to $\mathcal X^m$ by filling in each observed cell label independently from the baseline law $Q$ restricted to that cell. Then there is a deterministic sequence $r_n\to\infty$ such that the total variation distance between the lifted law and $(P^*)^{\otimes m}$ tends to $0$, where $P^*$ is the information projection of $Q$ onto the moment constraint.
+- id: canonical_sequential_evidence
+  name: Likelihood ratio is the canonical sequential evidence under log loss
+  label: ev:thm:canonical
+  chapter: '6'
+  origin: paper:psz2026a
+  status: proved
+  highlight: false
+  summary: The Bayes test rejects when the prior predictive likelihood ratio exceeds a cost determined threshold, and that ratio is an e variable and the unique maximizer of expected log growth among e variables.
+  statement: >-
+    Test $H_0$ against $H_1$, either possibly composite, with priors $\Pi_0,\Pi_1$ over the model classes and prior predictive mixtures $M_j^{(n)}=\int P_F^{\otimes n}\,\Pi_j(dF)$, and assume the two mixtures are mutually absolutely continuous. Let $H_j$ have prior probability $\pi_j$ and let $L_{ij}>0$ be the loss of deciding $H_i$ when $H_j$ holds ($i\ne j$). The Bayes test rejects $H_0$ when the likelihood ratio process $\Lambda_n=dM_1^{(n)}/dM_0^{(n)}$ exceeds $b=\pi_0L_{10}/(\pi_1L_{01})$, and $\mathbb E_{M_0}[\Lambda_n]=1$, so $\Lambda_n$ is an e variable under the mixture null. If $D(M_1^{(n)}\,\|\,M_0^{(n)})<\infty$, then $\Lambda_n$ is the unique maximizer of the expected log growth $\mathbb E_{M_1}[\log E]$ among e variables $E$ under $M_0^{(n)}$, with maximum $D(M_1^{(n)}\,\|\,M_0^{(n)})$. In this log loss sense the canonical multiplicative evidence is $E_n=\Lambda_n$, with additive evidence $W_n=\log\Lambda_n$. General e processes remain valid but need not recover this rejection region.
+- id: sequential_liftability_codelength
+  name: Sequential liftability of a codelength to an e process
+  label: ev:thm:lift
+  chapter: '6'
+  origin: paper:psz2026a
+  status: proved
+  highlight: false
+  summary: A codelength gives an e process exactly when its one step factors form a sub probability kernel, which fails for normalized maximum likelihood codes at changing horizons.
+  statement: >-
+    For a finite codelength $\ell$ and a null $P_0$ of full support, the sequence $(E_t)$ built from $\ell$ is an e process under $P_0$ if and only if the induced one step factors $q_t(x_t\mid x^{t-1})=\exp\{-\ell(x^{t-1},x_t)+\ell(x^{t-1})\}$ form an $\mathcal F_{t-1}$ measurable sub probability kernel, that is, $\sum_{x_t}q_t(x_t\mid x^{t-1})\le1$.
+- id: complexity_validity_tradeoff
+  name: Complexity validity tradeoff between minimax regret codes and e processes
+  label: ev:cor:tradeoff
+  chapter: '6'
+  origin: paper:psz2026a
+  status: proved
+  highlight: false
+  summary: No code that attains the minimax individual sequence regret at every horizon gives an e process unless the normalized maximum likelihood laws of successive horizons are consistent.
+  statement: >-
+    Unless the normalized maximum likelihood (NML) laws of successive horizons are consistent, each the marginal of the next (in the Bernoulli model they are not), no code that attains the minimax individual sequence regret at every horizon gives an e process. At each horizon only NML attains that regret (Shtarkov 1987), and its one step factor sums from horizon $t-1$ to $t$ average one under the NML law of horizon $t-1$, which forces the conditional factors to exceed unit mass on some history.
+- id: log_loss_uniqueness_evidence
+  name: Log loss is the unique scoring rule giving a martingale evidence process
+  label: ev:prop:logloss
+  chapter: '6'
+  origin: paper:psz2026a
+  status: proved
+  highlight: false
+  summary: Among strictly proper scoring rules only the log score yields an evidence process that is a null martingale for every alternative, and other rules grow no faster than the log loss rate.
+  statement: >-
+    Let $P_0$ have full support on a finite alphabet. Among strictly proper scoring rules $S$, the log score is, up to adding a function of the outcome, the unique rule whose induced evidence process $E_t^S=\prod_{s\le t}e^{S(P_1,X_s)}/e^{S(P_0,X_s)}$ is a $P_0$ martingale for every alternative $P_1$. Another strictly proper rule need not give a valid process; when its one step factor $f=e^{S(P_1,\cdot)-S(P_0,\cdot)}$ has $\mathbb E_{P_0}[f]\le1$, its growth rate $\mathbb E_{P_1}[\log f]$ under $P_1$ is at most $D(P_1\,\|\,P_0)$, with equality only if $f=P_1/P_0$.
+- id: risk_optimal_bayes_factor_threshold
+  name: Risk optimal Bayes factor threshold on the moderate deviation band
+  label: dv:thm:threshold
+  chapter: '6'
+  origin: paper:dpsz2026
+  status: proved
+  highlight: false
+  summary: For a normal mean and a point null, the Bayes factor and the risk optimal rejection cutoff, whose leading term log n is Jeffreys' threshold, hold with a uniform remainder on the moderate deviation band, with constants set by the prior density at the null, the variance and the prior odds.
+  statement: >-
+    Let $\bar X_n\sim N(\theta,\sigma^2/n)$ with $\sigma$ known, null $\theta_0=0$, and an alternative prior $\pi$ that is $C^3$ near the null with $\pi(0)=c_\pi>0$ and at most polynomial growth. Then, uniformly for $\bar x$ on the moderate deviation band $|\bar x|=O(\sqrt{(\log n)/n})$, with $t=\sqrt n\,\bar x/\sigma$, $BF_{01}(\bar x)=\dfrac{\sqrt n}{\sigma\sqrt{2\pi}\,c_\pi}\,e^{-t^2/2}\bigl(1+O(\sqrt{(\log n)/n})\bigr)$, and setting $BF_{01}=\pi_a/\pi_0$ (the ratio of prior alternative to null probabilities) gives $t_{\mathrm{crit}}^2=\log n+\log(c_\pi^{-2})-\log(2\pi\sigma^2)+2\log(\pi_0/\pi_a)+O(\sqrt{(\log n)/n})$.
+- id: moment_gap_martingale_posterior
+  name: Moment gap of martingale posteriors
+  label: crit:prop:gap
+  chapter: '7'
+  origin: paper:pz2026a
+  status: proved
+  highlight: false
+  summary: A martingale of posterior means does not determine the k step run probability from the current value alone, although the whole path of values does.
+  statement: >-
+    Let $(\theta_n)_{n\ge1}$ be a first moment martingale path with values in $(0,1)$, that is $\theta_n=\mathbb{E}[\theta_{n+1}\mid Y_{1:n}]$ for the binary observations $Y_i$ (the Fong, Holmes and Walker condition), and let $\theta_\infty$ be its limit. For every $k\ge2$ the current value $\theta_n$ alone does not fix the $k$ step run probability: the map $\theta_n\mapsto\mathbb{E}[(1-\theta_\infty)^k\mid Y_{1:n}]$ is set valued, since infinitely many priors $\Pi$ on $[0,1]$ have posterior mean $\theta_n$ given $Y_{1:n}$ and they do not all assign the same $k$ step run probability. The whole path, given as a function of every history with $\theta_{n+1}$ taking different values after $Y_{n+1}=0$ and $Y_{n+1}=1$, does fix it, because the martingale condition then determines every predictive probability $P(Y_{n+1}=1\mid Y_{1:n})$.
+- id: predictive_variance_gap
+  name: Predictive variance gap for martingale posteriors
+  label: crit:cor:sequential
+  chapter: '7'
+  origin: paper:pz2026a
+  status: proved
+  highlight: false
+  summary: Under the martingale posterior condition the current value does not determine the predictive variance or the coverage of a prediction set for the next k observations when k is at least 2.
+  statement: >-
+    Let $X_1,X_2,\dots$ be exchangeable binary with directing parameter $\theta_\infty$ and suppose the martingale condition $\mathbb{E}[\theta_{n+1}\mid X_{1:n}]=\theta_n$ of Fong, Holmes and Walker holds. Given only the current value $0<\theta_n<1$ and $k\ge2$, the predictive variance $\mathrm{Var}(X_{n+1}+\cdots+X_{n+k}\mid X_{1:n})=k\,\mathbb{E}[\theta_\infty(1-\theta_\infty)\mid X_{1:n}]+k^2\,\mathrm{Var}(\theta_\infty\mid X_{1:n})$ is not determined, because $\mathrm{Var}(\theta_\infty\mid X_{1:n})$ requires the second conditional moment $\mathbb{E}[\theta_\infty^2\mid X_{1:n}]$, which the martingale condition does not constrain and which enters with coefficient $k^2-k$ (for $k=1$ it cancels, leaving $\theta_n(1-\theta_n)$). The coverage of a prediction set $C$ for $X_{n+1}+\cdots+X_{n+k}$ derived from the martingale posterior, when $C$ contains some but not all of $\{0,\dots,k\}$, is likewise indeterminate: it is the conditional mean of $\mathbb{P}(\mathrm{Bin}(k,\theta_\infty)\in C)$, which for $k\ge2$ is not affine in $\theta_\infty$.
+- id: admissibility_classes_non_nested
+  name: Blackwell admissible, anytime valid and conformal rules are non nested
+  label: crit:prop:separation
+  chapter: '7'
+  origin: paper:pz2026b
+  status: proved
+  highlight: false
+  summary: The classes of Blackwell admissible, anytime valid admissible and conformal valid rules are pairwise non nested, and the martingale condition is necessary for the first but does not characterize any of them.
+  statement: >-
+    Let $\mathcal{A}_B$, $\mathcal{A}_{AV}$ and $\mathcal{A}_C$ be the classes of Blackwell admissible, anytime valid admissible and conformal valid rules. Then $\mathcal{A}_B$, $\mathcal{A}_{AV}$ and $\mathcal{A}_C$ are pairwise non nested. The Fong, Holmes and Walker martingale condition $\mathbb{E}[\theta_N\mid Y_{1:N-1}]=\theta_{N-1}$ is necessary for $\mathcal{A}_B$ but is satisfied by rules in all three classes as well as by rules in none of them.
+- id: bayesian_sanov
+  name: Bayesian Sanov principle under misspecification
+  label: ba:prop:bayes-sanov
+  chapter: '7'
+  origin: paper:pz2026j
+  status: proved
+  highlight: false
+  summary: On a finite alphabet the posterior obeys a large deviation principle at speed n whose rate is the excess reverse relative entropy over the reverse information projection of the truth; the well specified case is the inverse Sanov theorem of Ganesh and O'Connell (1999).
+  statement: >-
+    Let the alphabet $\mathcal{X}$ be finite, let $\Pi$ be a prior on distributions on $\mathcal{X}$ with support $\operatorname{supp}\Pi$, let $P_0$ be the true law and let $Q^\star=\arg\min_{Q\in\operatorname{supp}\Pi}\mathrm{KL}(P_0\,\|\,Q)$ be the reverse information projection of $P_0$ onto the model, assumed unique with $\mathrm{KL}(P_0\,\|\,Q^\star)<\infty$. Then under $P_0$ the posterior $\Pi(\cdot\mid X^n)$ obeys a large deviation principle at speed $n$ with rate function $I_\Pi(Q)=\mathrm{KL}(P_0\,\|\,Q)-\mathrm{KL}(P_0\,\|\,Q^\star)$ on $\operatorname{supp}\Pi$ and $I_\Pi=+\infty$ off it: for every set $E$ with $\inf_{E^\circ}I_\Pi=\inf_{\bar E}I_\Pi$, $\frac1n\log\Pi(Q\in E\mid X^n)\to-\inf_{Q\in E}I_\Pi(Q)$ $P_0$ almost surely. In particular the posterior concentrates on $Q^\star$. In a parametric submodel $\{P_\theta\}$, $Q^\star=P_{\theta^\star}$ with $\theta^\star$ the Kullback Leibler projection, and when the model is correct $Q^\star=P_0$ and the rate is $\mathrm{KL}(P_0\,\|\,Q)$.
+- id: non_coverage_exponents_of_credible_sets
+  name: Non coverage exponents of credible sets on moderate scales
+  label: ba:cor:coverage
+  chapter: '7'
+  origin: paper:pz2026j
+  status: proved
+  highlight: false
+  summary: On moderate scales credible balls and confidence balls have the same Gaussian tail exponent, which sharpens the Bernstein and von Mises equivalence to an exponential rate.
+  statement: >-
+    Assume the model is locally asymptotically normal at $\theta_0$ with nonsingular Fisher information $\mathcal{I}$, the prior density is continuous and positive at $\theta_0$, the normalized score $\Delta_n$ satisfies a moderate deviation principle on scale $a_n$ with rate $\frac12x^\top\mathcal{I}^{-1}x$, and the local likelihood remainder and tails are exponentially negligible on moderate balls (the moderate deviation assumption of the book), with $a_n=t_n\to\infty$ and $t_n=o(\sqrt n)$. Let $C_n(t)=\{\theta:\sqrt n\,|\mathcal{I}^{1/2}(\theta-\hat\theta)|\le t\}$ be the credible ball of radius $t/\sqrt n$ in the information metric, centered at the maximum likelihood estimator $\hat\theta$. Then $t_n^{-2}\log\pi_n(\theta\notin C_n(t_n)\mid X^n)\to-\frac12$ in $P_0$ probability. If in addition $\sqrt n(\hat\theta-\theta_0)-\mathcal{I}^{-1}\Delta_n$ is exponentially negligible at speed $t_n^2$, that is $t_n^{-2}\log P_0(\|\sqrt n(\hat\theta-\theta_0)-\mathcal{I}^{-1}\Delta_n\|>\varepsilon t_n)\to-\infty$ for every $\varepsilon>0$, then the frequentist non coverage probability $P_0(\theta_0\notin C_n(t_n))$ decays at the same Gaussian exponent.
+- id: three_regimes_one_rate_function
+  name: Three regimes of the posterior governed by one quadratic form
+  label: ba:prop:three
+  chapter: '7'
+  origin: paper:pz2026j
+  status: proved
+  highlight: false
+  summary: Combining the Bernstein and von Mises theorem, the moderate deviation theorem of Eichelsbacher and Ganesh and the Bayesian Sanov principle, the central limit, moderate deviation and large deviation behavior of the posterior are one rate function seen at three magnifications, with the Fisher information as its Hessian.
+  statement: >-
+    In a locally asymptotically normal model satisfying the hypotheses of the Bernstein and von Mises theorem and the moderate deviation assumption of the book, and, for the last regime, on a finite alphabet with $P_{\theta_0}>0$, the deviation behavior of the posterior is governed by the single quadratic form $\frac12v^\top\mathcal{I}v$ ($\mathcal{I}$ the Fisher information at $\theta_0$) across three scales of $\theta-\theta_0$. For $\theta-\theta_0=O(n^{-1/2})$ (with an efficient estimator $\hat\theta_n$) the law of $\sqrt n(\theta-\hat\theta_n)$ tends to $\mathcal{N}(0,\mathcal{I}^{-1})$. For $\theta-\theta_0=a_nn^{-1/2}$ with $1\ll a_n\ll\sqrt n$ the rate is $\frac12v^\top\mathcal{I}v$ at speed $a_n^2$. For $\theta-\theta_0=O(1)$ the rate is $\mathrm{KL}(P_{\theta_0}\,\|\,P_\theta)$ at speed $n$. The three are one rate function at three magnifications, since $\frac12v^\top\mathcal{I}v$ is the inverse covariance of the Bernstein and von Mises Gaussian, the moderate deviation rate, and the Hessian at $\theta_0$ of the large deviation rate $\theta\mapsto\mathrm{KL}(P_{\theta_0}\,\|\,P_\theta)$, because $\nabla^2_\theta\mathrm{KL}(P_{\theta_0}\,\|\,P_\theta)|_{\theta=\theta_0}=\mathcal{I}$.
+- id: functional_bvm_proportional_asymptotics
+  name: Functional Bernstein and von Mises and bulk non contraction at proportional rate
+  label: ba:thm:prop
+  chapter: '7'
+  origin: paper:pz2026j
+  status: proved
+  highlight: false
+  summary: In Gaussian linear regression with dimension proportional to sample size, one dimensional functionals of the posterior are Gaussian with inflated variance and satisfy a deformed moderate deviation principle while the full posterior does not contract.
+  statement: >-
+    Let $y=X\theta_0+\varepsilon$ with $\varepsilon\sim\mathcal{N}(0,\sigma^2I_n)$, let $X\in\mathbb{R}^{n\times d_n}$ have i.i.d. $\mathcal{N}(0,1)$ entries, take a flat prior on $\theta$ and let $d_n/n\to\gamma\in(0,1)$. For deterministic unit vectors $c_n\in\mathbb{R}^{d_n}$, with $\psi=c_n^\top\theta$ and $\hat\psi=c_n^\top\hat\theta$ the least squares value, $\sqrt n(\psi-\hat\psi)\mid y$ converges in law to $\mathcal{N}(0,\sigma^2/(1-\gamma))$ in $P_0$ probability, while the full vector posterior does not contract: $\mathbb{E}[\|\theta-\hat\theta\|^2\mid y]\to\sigma^2\gamma/(1-\gamma)>0$ in probability. Consequently for $a_n\to\infty$ with $a_n=o(\sqrt n)$, $a_n^{-2}\log\mathbb{P}(\sqrt n|\psi-\hat\psi|\ge a_nt\mid y)\to-(1-\gamma)t^2/(2\sigma^2)$ in probability.
+- id: moderate_scale_calibration_misspecification
+  name: Moderate scale calibration of tempered posteriors under misspecification
+  label: ba:prop:calib
+  chapter: '7'
+  origin: paper:pz2026j
+  status: proved
+  highlight: true
+  summary: A scalar learning rate calibrates credible balls at moderate scale only when the model curvature and score covariance are proportional, and otherwise a matrix temperature is needed.
+  statement: >-
+    Under the moderate deviation assumption of the book with $V$ in place of the Fisher information, consider a misspecified model with Kullback Leibler projection $\theta^\star$, expected curvature $V$ (the Hessian of $\theta\mapsto\mathrm{KL}(P_0\,\|\,P_\theta)$ at $\theta^\star$) and score covariance $\Sigma$. On the moderate scale, the tempered (Gibbs) posterior with learning rate $w$, proportional to the prior times $\exp\{-w\sum_iL(\theta,X_i)\}$, obeys a moderate deviation principle with rate $\frac w2v^\top Vv$, while the frequentist non coverage exponent of its credible balls is $\frac12v^\top(V\Sigma^{-1}V)v$. The two coincide in every direction $v$ if and only if $wV=V\Sigma^{-1}V$, that is $w\Sigma=V$. Hence a scalar learning rate restores moderate scale calibration exactly when $\Sigma^{-1}V$ is a scalar multiple of the identity, with $w^\star$ that multiple; otherwise no scalar suffices, and the spread of the eigenvalues of $\Sigma^{-1}V$ is an irreducible miscalibration that only a matrix temperature can remove.
+- id: best_scalar_temperature
+  name: Best scalar temperature for a misspecified posterior
+  label: ba:cor:wstar
+  chapter: '7'
+  origin: paper:pz2026j
+  status: proved
+  highlight: false
+  summary: When no scalar learning rate calibrates, the rate that matches the expected credible radius to nominal is the dimension divided by the trace of the product of inverse curvature and score covariance.
+  statement: >-
+    With $V$ the expected curvature, $\Sigma$ the score covariance and $d$ the parameter dimension, when $\Sigma$ is not proportional to $V$ no scalar learning rate fully calibrates, but the rate matching the expected credible radius to nominal, equivalently matching the first moment of the coverage statistic, is $w^\star=d/\operatorname{tr}(V^{-1}\Sigma)$, which reduces to $w^\star=1$ under correct specification. The residual miscalibration is governed by the dispersion of the eigenvalues of $V^{-1}\Sigma$ about their mean.
+- id: mean_field_variational_anti_conservatism
+  name: Moderate deviation form of mean field variational undercoverage
+  label: ba:prop:vb
+  chapter: '7'
+  origin: paper:pz2026j
+  status: proved
+  highlight: false
+  summary: In the Gaussian limit the product form variational approximation, whose marginal variances are classically too small, has a larger moderate deviation rate than the posterior, so its credible intervals are too narrow by a factor given by the coordinate curvature product.
+  statement: >-
+    In the Gaussian Bernstein and von Mises limit $\mathcal{N}(\hat\theta,\mathcal{I}^{-1})$, the Kullback Leibler optimal product approximation is $\prod_i\mathcal{N}(\hat\theta_i,\mathcal{I}_{ii}^{-1})$, and the per coordinate moderate deviation rate of mean field variational Bayes satisfies $J^{\mathrm{VB}}_i(v)=\frac12\mathcal{I}_{ii}v^2\ge J_i(v)=\frac12v^2/(\mathcal{I}^{-1})_{ii}$, with $\kappa_i:=\mathcal{I}_{ii}(\mathcal{I}^{-1})_{ii}\ge1$ and equality if and only if $\mathcal{I}_{i,-i}=0$. Mean field credible intervals therefore undercover at the moderate scale, their half width too small by the factor $\kappa_i^{-1/2}$.
+- id: dependent_data_calibration
+  name: Calibration under dependent data and the long run variance
+  label: ba:prop:lrv
+  chapter: '7'
+  origin: paper:pz2026j
+  status: conditional
+  conditions:
+    - the hypothesis that the posterior precision is asymptotically n V under stationary alpha mixing data and a possibly misspecified model, which the book assumes and does not derive
+  highlight: false
+  summary: For mixing data the Bernstein and von Mises limit has the sandwich form with the long run score variance, and the calibrating temperature is the curvature over that variance in the scalar case.
+  statement: >-
+    Let the data be stationary and $\alpha$ mixing at a rate and with moments that give the score a central limit theorem, the model possibly misspecified, with $\theta^\star$ the Kullback Leibler projection, $V$ the expected per observation curvature and $\Sigma_{\mathrm{LRV}}=\sum_{k\in\mathbb{Z}}\mathrm{Cov}_0(\dot\ell_0(\theta^\star),\dot\ell_k(\theta^\star))$ the long run variance of the score, and suppose that the posterior precision is asymptotically $nV$. Then $\sqrt n(\hat\theta_n-\theta^\star)$ converges in law to $\mathcal{N}(0,V^{-1}\Sigma_{\mathrm{LRV}}V^{-1})$; hence the Bernstein and von Mises limit is the sandwich form with $\Sigma=\Sigma_{\mathrm{LRV}}$, and the moderate scale calibrating temperature is, in the scalar case, $w^\star=V/\Sigma_{\mathrm{LRV}}$. When the one observation score satisfies the Bartlett identity, positive dependence inflates $\Sigma_{\mathrm{LRV}}$ above $V$ and forces $w^\star<1$.
+- id: jeffreys_prior_equalizes_universal_portfolio_regret
+  name: The Jeffreys prior equalizes the regret of the universal portfolio
+  label: up:thm:regret
+  chapter: '10'
+  origin: paper:p2026a
+  status: conditional
+  conditions:
+    - the Laplace expansion of the mixture wealth, which the book states without a formal proof
+  highlight: false
+  summary: In a stationary ergodic market the regret of the Bayes universal portfolio has a Laplace expansion of the Rissanen and Shtarkov type, and under the Jeffreys prior of a market family indexed by its growth optimal portfolio the constant does not depend on that portfolio, the equalizer property of Clarke and Barron carried to portfolios; the book states this without a formal proof, and for the uniform prior the first expansion recovers Cover (1991).
+  statement: >-
+    Assume a stationary ergodic market with relatives bounded away from zero and infinity and a unique interior maximizer $b^\star$ of the growth rate $W(b)=\mathbb{E}\log b^\top x$, and write $\mathcal{I}(b)=\mathbb{E}[xx^\top/(b^\top x)^2]$ for the market information matrix on the tangent space of the simplex. Then, almost surely, the regret $R_T$ of the universal portfolio satisfies $R_T=\frac{d-1}2\log\frac{T}{2\pi}+\frac12\log\det\mathcal{I}(b^\star)-\log\pi(b^\star)+o(1)$, where $\pi$ is the prior density. Suppose further that the market is one of a family indexed by the growth optimal portfolio, and read $\mathcal{I}(b)$ as the information of the member whose growth optimal portfolio is $b$. If $\pi$ is the Jeffreys prior $\pi_J(b)\propto\sqrt{\det\mathcal{I}(b)}$ with finite volume $C=\int_\Delta\sqrt{\det\mathcal{I}(b)}\,db$, then $R_T=\frac{d-1}2\log\frac T{2\pi}+\log C+o(1)$, which does not depend on $b^\star$.
+- id: generalized_control_variate_unification
+  name: Generalized control variate estimator, optimal shrinkage and variance
+  label: thm:gcv
+  chapter: '12'
+  origin: paper:psz2026f
+  status: proved
+  highlight: true
+  summary: The estimators of Bayes linear, cross prediction powered inference and inverse probability weighted prediction powered inference are all a baseline plus a shrunken labeled data rectifier, and the best shrinkage is a covariance over variance ratio.
+  statement: >-
+    Let $\hat\theta_{\mathrm{base}}$ be a baseline estimator of a scalar $\theta$, let $\hat\theta_{\mathrm{truth},\ell}$ be a low bias estimator on the labeled subsample, and let $r_\ell=\hat\theta_{\mathrm{truth},\ell}-\hat\theta_{\mathrm{base},\ell}$ be the rectifier, where $\hat\theta_{\mathrm{base},\ell}$ is the baseline estimator computed on the labeled subsample. The generalized control variate (GCV) estimator is $\hat\theta_{GCV}(\lambda)=\hat\theta_{\mathrm{base}}+\lambda r_\ell$ for $\lambda\in\mathbb R$ (for $\theta\in\mathbb R^p$, $\lambda$ is replaced by a matrix $\Lambda\in\mathbb R^{p\times p}$). Suppose $\hat\theta_{\mathrm{base}}$ and $\hat\theta_{\mathrm{truth},\ell}$ have finite second moments and $\mathrm{Var}[r_\ell]>0$ (respectively $\mathrm{Var}[r_\ell]\succ0$ in the matrix case). Let $V(\lambda)=\mathrm{Var}[\hat\theta_{GCV}(\lambda)-\theta]$, the variance taken in the inner product space natural to the method. Then $V$ is quadratic in $\lambda$ and is minimized at $\lambda^*=\mathrm{Cov}[\theta-\hat\theta_{\mathrm{base}},r_\ell]/\mathrm{Var}[r_\ell]=-\mathrm{Cov}[\hat\theta_{\mathrm{base}}-\theta,r_\ell]/\mathrm{Var}[r_\ell]$, with minimized value $V(\lambda^*)=\mathrm{Var}[\hat\theta_{\mathrm{base}}-\theta](1-\rho_b^2)=\mathrm{Var}[\hat\theta_{\mathrm{truth},\ell}-\theta](1-\rho_t^2)$, where $\rho_b=\mathrm{Corr}[\hat\theta_{\mathrm{base}}-\theta,r_\ell]$ and, when $\hat\theta_{\mathrm{base}}=\hat\theta_{\mathrm{base},\ell}$, $\rho_t=\mathrm{Corr}[\hat\theta_{\mathrm{truth},\ell}-\theta,r_\ell]$. The matrix form $\Lambda^*=\mathrm{Cov}[\theta-\hat\theta_{\mathrm{base}},r_\ell]\,\mathrm{Var}[r_\ell]^{-1}$ minimizes $V$ in the Loewner order.
+- id: bl_and_cross_ppi_gain_on_residual
+  name: Bayes linear and cross prediction powered inference as gain on residual updates
+  label: thm:duality
+  chapter: '12'
+  origin: paper:psz2026f
+  status: proved
+  highlight: false
+  summary: Bayes linear and cross prediction powered inference are both a starting point plus a gain times a labeled residual, and they differ only in the gain, which for Cross PPI ignores the labeled data precision.
+  statement: >-
+    Both the Bayes linear (BL) estimator and the cross prediction powered inference (Cross PPI) estimator take the form $\hat\beta=\mu_{\mathrm{eff}}+G\,X_\ell^\top(Y_\ell-\text{baseline fit})$, where $X_\ell,Y_\ell$ are the labeled design and responses ($n$ labeled units). For BL, $\mu_{\mathrm{eff}}=\mu_0$ (the prior mean), the baseline fit is $X_\ell\mu_0$, and the gain is $G_{BL}=\mathrm{Var}_D[\beta]/\sigma^2=(V_0^{-1}+X_\ell^\top X_\ell/\sigma^2)^{-1}/\sigma^2$. For Cross PPI, $\mu_{\mathrm{eff}}=\hat\beta_{\mathrm{surr},u}$ is the least squares fit of the surrogate predictions on the $N$ unlabeled units with design $X_u$, the baseline fit is the cross fitted prediction of $Y_\ell$, and the gain is $G_{CPPI}=(X_u^\top X_u/N)^{-1}/n$. The gains differ in that $G_{BL}$ uses the posterior covariance, which includes the labeled data precision $X_\ell^\top X_\ell/\sigma^2$, whereas $G_{CPPI}$ uses the unlabeled pool covariance alone, carries no shrinkage denominator and does not adapt to $n$.
+- id: uniform_a_n_rule_is_cid_martingale_posterior_cdf
+  name: Uniform A_(n) predictive rule is conditionally identically distributed with martingale posterior CDF
+  label: thm:cid
+  chapter: '12'
+  origin: paper:psz2026f
+  status: proved
+  highlight: false
+  summary: Hill's uniform predictive rule is a conditionally identically distributed sequence, and the martingale posterior mean of the distribution function is the empirical count over n plus one.
+  statement: >-
+    The uniform $A_{(n)}$ predictive rule (the next observation falls in each of the $n+1$ intervals cut by the ordered sample with probability $1/(n+1)$, the mass of each interval sitting at its upper end point and that of the last interval at $+\infty$) is conditionally identically distributed in the sense of Berti, Pratelli and Rigo (2004), and the martingale posterior for the distribution function $F$ satisfies $\mathrm{E}[F(x)\mid X_{(1:n)}]=\#\{i:X_i\le x\}/(n+1)$.
+- id: berliner_hill_limit_of_bayes_linear
+  name: Berliner and Hill survival estimator as a limit of Bayes linear adjusted expectations
+  label: thm:bhbl
+  chapter: '12'
+  origin: paper:psz2026f
+  status: proved
+  highlight: false
+  summary: The Berliner and Hill survival estimator is the Kaplan and Meier product with one extra virtual observation per risk set, a limit of Bayes linear estimates and, without censoring, a martingale posterior mean.
+  statement: >-
+    The Berliner--Hill survival estimator is $\hat S_{BH}(t)=\prod_{t_{(j)}\le t}\bigl(1-d_j/(n_j+1)\bigr)$, with $d_j$ events among $n_j$ at risk at event time $t_{(j)}$. Each factor $1-d_j/(n_j+1)$ is the limit, as the prior mean $p_0\uparrow1$, of the Bayes linear adjusted expectation of the conditional survival probability $p_j$ under prior mean $p_0$ with prior equivalent sample size $m=1$ per risk set. For uncensored data the estimator is the martingale posterior mean of $S(t)$ under the uniform $A_{(n)}$ prior.
+- id: qnn_posterior_wasserstein_consistency
+  name: Wasserstein consistency of the quantile neural network posterior
+  label: gbc:thm:qnn
+  chapter: '12'
+  origin: paper:psz_gbc_causal
+  status: proved
+  highlight: false
+  summary: For a scalar parameter, the posterior obtained by pushing uniform draws through a trained quantile network is within its integrated quantile error plus the sufficiency gap of the summary statistic of the exact posterior in Wasserstein distance, so it converges when both errors vanish.
+  statement: >-
+    Let $\theta$ be a scalar parameter, $D_N$ the data, $h(D_N)$ a summary statistic, and let $f_{\varphi_S}:[0,1]\times H\to\mathbb R$ be a quantile neural network trained on $S=S_N$ draws $(\theta^{(s)},D^{(s)})$ from the joint prior predictive by minimizing the pinball loss $\frac1S\sum_{s=1}^S\mathrm{E}_\tau[\rho_\tau(\theta^{(s)}-f_\varphi(\tau,h(D^{(s)})))]$, where $\rho_\tau(u)=u(\tau-\mathbf 1_{u<0})$ and $\tau\sim\mathrm{Unif}[0,1]$. Let $W_2$ be the quadratic Wasserstein distance and $Q(\cdot\mid h)$ the quantile function of $p(\theta\mid h)$. Assume (Q1) $f_{\varphi_S}$ minimizes the pinball loss over a ReLU network class whose size grows with $S$; (Q2) the prior, hence every posterior, is supported in a fixed bounded interval; (Q3) $W_2(p(\theta\mid h(D_N)),p(\theta\mid D_N))\to0$ in probability; (Q4) $S_N$ grows fast enough that $\int_0^1|f_{\varphi_S}(\tau,h(D_N))-Q(\tau\mid h(D_N))|^2\,d\tau\to0$ in probability. Write $f_{\varphi_S,\#}\mathrm{Unif}$ for the law of $f_{\varphi_S}(U,h(D_N))$ with $U\sim\mathrm{Unif}[0,1]$. Then $W_2(f_{\varphi_S,\#}\mathrm{Unif},p(\theta\mid D_N))\to0$ in probability as $S,N\to\infty$, and for finite $S$, with $h=h(D_N)$, $W_2(f_{\varphi_S,\#}\mathrm{Unif},p(\theta\mid D_N))\le(\int_0^1|f_{\varphi_S}(\tau,h)-Q(\tau\mid h)|^2\,d\tau)^{1/2}+W_2(p(\theta\mid h),p(\theta\mid D_N))$. The limit uses only this bound, (Q3) and (Q4).
+- id: gbc_ate_parametric_efficiency
+  name: Efficiency of the GBC average treatment effect estimator in a parametric structural causal model
+  label: gbc:thm:efficiency
+  chapter: '12'
+  origin: paper:psz_gbc_causal
+  status: proved
+  highlight: false
+  summary: In a correctly specified parametric structural causal model, the average of the treatment effect over GBC posterior draws is asymptotically normal with the parametric information bound as variance, which never exceeds the nonparametric efficiency bound and equals it only when the efficient influence function lies in the span of the model scores.
+  statement: >-
+    Let $W\in\{0,1\}$ be a treatment, $Y$ an outcome and $X$ covariates, observed in an i.i.d. sample $D_N$ of size $N$, and assume unconfoundedness $W\perp\!\!\!\perp(Y(0),Y(1))\mid X$, overlap $0<e(x)<1$ for the propensity score $e(x)=P(W=1\mid X=x)$, and the stable unit treatment value assumption. Let a parametric structural causal model with parameter $\theta\in\Theta\subset\mathbb R^d$ be correctly specified at an interior point $\theta_0$ and differentiable in quadratic mean there, with score $\dot\ell_{\theta_0}$ and nonsingular Fisher information $\mathcal I(\theta_0)$; let the average treatment effect $\tau(\theta)$ be Lipschitz and continuously differentiable, with $\tau_0=\tau(\theta_0)$; and let the prior meet the conditions of the parametric Bernstein and von Mises theorem for the posterior mean. Let $\hat\tau_{\mathrm{GBC}}=R^{-1}\sum_{r=1}^R\tau^{(r)}$, where the $\tau^{(r)}=\tau(\theta^{(r)})$ come from draws $\theta^{(r)}$ of the GBC posterior whose law is within $o_P(N^{-1/2})$ of $p(\theta\mid D_N)$ in the quadratic Wasserstein distance. Then $\sqrt N(\hat\tau_{\mathrm{GBC}}-\tau_0)$ converges in law to $N(0,V_{\mathrm{par}})$ as $N,S,R\to\infty$, where $S$ is the number of training simulations and $V_{\mathrm{par}}=\nabla\tau(\theta_0)^\top\mathcal I(\theta_0)^{-1}\nabla\tau(\theta_0)$. Moreover $V_{\mathrm{par}}\le V_{\mathrm{eff}}=\mathrm{E}[\psi(Y,W,X;\tau_0)^2]$, the efficiency bound of the nonparametric model, where $\psi(Y,W,X;\tau)=\frac{W-e(X)}{e(X)(1-e(X))}(Y-\mu_W(X))+\mu_1(X)-\mu_0(X)-\tau$ and $\mu_w(x)=\mathrm{E}[Y\mid W=w,X=x]$, with equality if and only if $\psi(Y,W,X;\tau_0)$ lies in the linear span of the components of $\dot\ell_{\theta_0}$.
+- id: gbc_meu_policy_posterior_contraction
+  name: Posterior contraction of the GBC maximum expected utility policy
+  label: gbc:thm:contraction
+  chapter: '12'
+  origin: paper:psz_gbc_causal
+  status: proved
+  highlight: true
+  summary: Under a Lipschitz utility, posterior contraction at a rate and a quadratic margin condition, the policy that maximizes posterior expected utility converges in mean square to the oracle policy at a rate proportional to the contraction rate, so at rate N to the minus one quarter in parametric models.
+  statement: >-
+    Let $\mathcal A$ be a class of policies $\pi$, $U(\pi,\theta,Y)$ a utility, $u(\pi,\theta)=\int U(\pi,\theta,y)\,p(y\mid\theta,\mathrm{do}(\pi))\,dy$, $\pi_N$ the posterior given the sample $D_N$, $EU(\pi\mid D_N)=\int u(\pi,\theta)\,\pi_N(d\theta)$, and $\|\pi\|^2=\mathrm{E}_X[\pi(X)^2]$, the squared $L_2$ norm under the covariate law. Let $\pi^*_0=\arg\max_{\pi\in\mathcal A}\mathrm{E}_{P_0}[U(\pi,\theta_0,Y)]$ be the oracle policy and $\pi^*_N=\arg\max_{\pi\in\mathcal A}EU(\pi\mid D_N)$. Assume (B1) the model is correctly specified at $\theta_0$, so that $\mathrm{E}_{P_0}[U(\pi,\theta_0,Y)]=u(\pi,\theta_0)$, and both maximizers exist; (B2) $|u(\pi,\theta)-u(\pi,\theta')|\le L_U\,d(\theta,\theta')$ for all $\pi\in\mathcal A$ and a metric $d$ on $\Theta$; (B3) $\mathrm{E}_{P_0}[\int d(\theta,\theta_0)\,\pi_N(d\theta)]\le C\varepsilon_N$ for a constant $C$; (B4) $\mathrm{E}_{P_0}[U(\pi^*_0,\theta_0,Y)-U(\pi,\theta_0,Y)]\ge\kappa\|\pi-\pi^*_0\|^2$ for all $\pi\in\mathcal A$, with $\kappa>0$. Then $\mathrm{E}_{P_0}[\|\pi^*_N-\pi^*_0\|^2]=O(L_U\varepsilon_N/\kappa)$. In parametric models where (B3) holds with $\varepsilon_N=N^{-1/2}$, the policy converges at rate $(L_U/\kappa)^{1/2}N^{-1/4}$ in root mean square.
+- id: gbc_meu_bayes_regret
+  name: Bayes regret of the GBC maximum expected utility policy
+  label: gbc:cor:regret
+  chapter: '12'
+  origin: paper:psz_gbc_causal
+  status: proved
+  highlight: false
+  summary: Without any margin condition, the expected utility lost by the policy that maximizes posterior expected utility, relative to the oracle policy, is of the order of the posterior contraction rate, so of order one over root N in parametric models.
+  statement: >-
+    Let $\mathcal A$ be a class of policies $\pi$, $U(\pi,\theta,Y)$ a utility, $u(\pi,\theta)=\int U(\pi,\theta,y)\,p(y\mid\theta,\mathrm{do}(\pi))\,dy$, $\pi_N$ the posterior given the sample $D_N$, $EU(\pi\mid D_N)=\int u(\pi,\theta)\,\pi_N(d\theta)$, $V(\pi)=\mathrm{E}_{P_0}[U(\pi,\theta_0,Y)]$, $\pi^*_0=\arg\max_{\pi\in\mathcal A}V(\pi)$ and $\pi^*_N=\arg\max_{\pi\in\mathcal A}EU(\pi\mid D_N)$. Assume (B1) the model is correctly specified at $\theta_0$, so that $V(\pi)=u(\pi,\theta_0)$, and both maximizers exist; (B2) $|u(\pi,\theta)-u(\pi,\theta')|\le L_U\,d(\theta,\theta')$ for all $\pi\in\mathcal A$ and a metric $d$ on $\Theta$; (B3) $\mathrm{E}_{P_0}[\int d(\theta,\theta_0)\,\pi_N(d\theta)]\le C\varepsilon_N$ with a constant $C$ free of $\theta_0$. Then the Bayes regret satisfies $R_N=\mathrm{E}_{D_N,\theta_0}[V(\pi^*_0)-V(\pi^*_N)]=O(L_U\varepsilon_N)$, and $R_N=O(N^{-1/2})$ in parametric models in which (B3) holds with $\varepsilon_N=N^{-1/2}$.
+- id: method_of_types_e_value
+  name: Method of types e value with Kullback Leibler growth rate
+  label: ev:thm:motev
+  chapter: '12'
+  origin: paper:psz_evalues_sanov
+  status: proved
+  highlight: false
+  summary: Dividing the maximum likelihood ratio against a simple null on a finite alphabet by a polynomial bound on the number of types gives a valid e value, whose logarithm grows at the Kullback Leibler divergence of the true law from the null.
+  statement: >-
+    Let $X_1,X_2,\dots$ be i.i.d. with law $P$ on a finite alphabet $\mathcal X$, let $\widehat P_n$ be the empirical measure (type) of $X_1,\dots,X_n$, let $P_0$ be a law on $\mathcal X$, and let $D(Q\,\|\,R)=\sum_xQ(x)\log(Q(x)/R(x))$ be the Kullback Leibler divergence. Define $E_n=(n+1)^{-|\mathcal X|}\exp(nD(\widehat P_n\,\|\,P_0))$. Then $\mathrm{E}_{P_0}[E_n]\le1$, so $E_n$ is an e value for the simple null $H_0:P=P_0$ (a nonnegative statistic with expectation at most one under the null). Moreover, under any $P$, $\frac1n\log E_n\to D(P\,\|\,P_0)$ almost surely, the limit taken in $[0,\infty]$.
+- id: federated_product_of_experts
+  name: Federated product of experts from exchangeability
+  label: thm:fed-poe
+  chapter: '13'
+  origin: paper:pz2026f
+  status: proved
+  highlight: true
+  summary: If the pooled client data are exchangeable, the global posterior is the prior times the product of the client likelihoods, equivalently a product of size weighted local pseudo posteriors.
+  statement: >-
+    Let $K$ clients hold data $D_k=(X^{(k)}_1,\dots,X^{(k)}_{n_k})$ with $N=\sum_k n_k$. Suppose $\theta\mapsto p(\cdot\mid\theta)$ is injective, the full array $\{X^{(k)}_i\}_{i,k}$ is jointly exchangeable (invariant in law under all permutations of its $N$ entries) and extends to an infinite exchangeable sequence whose directing measure lies almost surely in $\{p(\cdot\mid\theta):\theta\in\Theta\}$. Then there exists a prior law $\Pi$ on $\Theta$, unique as the mixing law of the extended sequence, such that given $\theta\sim\Pi$ the extended sequence is i.i.d. from $p(\cdot\mid\theta)$ and, when $\Pi$ has a density $\pi$, $\pi(\theta\mid D_1,\dots,D_K)\propto\pi(\theta)\prod_{k=1}^K p(D_k\mid\theta)$. With size weighted local pseudo posteriors $\pi_k(\theta)\propto\pi(\theta)^{n_k/N}p(D_k\mid\theta)$, the global posterior is the product of local experts, $\pi(\theta\mid D_1,\dots,D_K)\propto\prod_{k=1}^K\pi_k(\theta)$.
+- id: federated_sanov_concentration
+  name: Federated Sanov posterior concentration at a Kullback Leibler rate
+  label: thm:fed-conc
+  chapter: '13'
+  origin: paper:pz2026f
+  status: proved
+  highlight: false
+  summary: The federated posterior mass outside any fixed neighborhood of the truth decays exponentially at a rate given by the smallest Kullback Leibler divergence from the truth to the outside of the neighborhood.
+  statement: >-
+    Let $\theta_0$ lie in the Kullback Leibler support of the prior $\Pi$, fix $\varepsilon>0$, and let $\bar\ell_N(\theta)$ be the average over all $N$ observations of $\log\{p(X\mid\theta_0)/p(X\mid\theta)\}$. Let $c_\varepsilon=\inf_{\|\theta-\theta_0\|>\varepsilon}\mathrm{KL}\bigl(p(\cdot\mid\theta_0)\,\|\,p(\cdot\mid\theta)\bigr)$ and suppose $c_\varepsilon>0$ and that, $P_{\theta_0}$-almost surely, for every $\delta>0$, $\inf_{\|\theta-\theta_0\|>\varepsilon}\bar\ell_N(\theta)\ge c_\varepsilon-\delta$ for all large $N$ (a one sided uniform law of large numbers). Then, $P_{\theta_0}$-almost surely, $\limsup_{N\to\infty}\frac1N\log\Pi(\|\theta-\theta_0\|>\varepsilon\mid D_1,\dots,D_K)\le-c_\varepsilon$.
+- id: federated_bernstein_von_mises
+  name: Federated Bernstein and von Mises theorem
+  label: cor:fed-bvm
+  chapter: '13'
+  origin: paper:pz2026f
+  status: proved
+  highlight: false
+  summary: The federated posterior is asymptotically normal around the federated maximum likelihood estimate with the centralized rate and variance, so nothing is lost by not pooling raw data.
+  statement: >-
+    Assume the conditions of the federated Sanov concentration theorem for every $\varepsilon>0$, and suppose also that the model is differentiable in quadratic mean at $\theta_0$ (local asymptotic normality), that the Fisher information $\mathcal I(\theta_0)$ is nonsingular, that the federated maximum likelihood estimator $\hat\theta_N$ is asymptotically efficient, and that the prior $\Pi$ has a density $\pi$ positive and continuous at $\theta_0$. Then the posterior law of $\sqrt N(\theta-\hat\theta_N)$ converges to $N(0,\mathcal I(\theta_0)^{-1})$ in total variation, in $P_{\theta_0}$-probability; in particular $\sqrt N(\theta-\hat\theta_N)\mid D_1,\dots,D_K\to N(0,\mathcal I(\theta_0)^{-1})$ in law.
+- id: federated_horseshoe_sufficient_statistics
+  name: Sufficient statistics for the federated horseshoe
+  label: thm:hs-suff
+  chapter: '13'
+  origin: paper:pz2026f
+  status: proved
+  highlight: false
+  summary: In the linear model each client needs to send only a vector of size d and a residual sum of squares for the server to evaluate its marginal likelihood under the horseshoe prior.
+  statement: >-
+    In the linear model client $k$ observes $Y_k\mid\theta\sim N(X_k\theta,\sigma^2I_{n_k})$ with known $\sigma^2$ and a design $X_k\in\mathbb R^{n_k\times d}$ of full column rank, with prior $\theta\sim N(0,\tau^2\Lambda)$, $\Lambda=\mathrm{diag}(\lambda_1^2,\dots,\lambda_d^2)$ (the horseshoe prior conditionally on the local and global scales). Let $\mathrm{RSS}_k$ be the residual sum of squares of the least squares fit of $Y_k$ on $X_k$ and $T_k=(X_k^\top Y_k,\mathrm{RSS}_k,X_k^\top X_k)$. The marginal likelihood $p(Y_k\mid\Lambda,\tau)=\int p(Y_k\mid\theta)\pi(\theta\mid\Lambda,\tau)\,d\theta$ depends on $Y_k$ only through $T_k$. If $X_k^\top X_k$ is known to the server, client $k$ need only transmit $(X_k^\top Y_k,\mathrm{RSS}_k)\in\mathbb R^d\times\mathbb R$, which is $O(d)$ scalars regardless of $n_k$; if $X_k^\top X_k$ must be sent as well, the cost is $O(d^2)$.
+- id: federated_horseshoe_gaussian_bias_bounds
+  name: Gaussian approximation bias of the federated horseshoe
+  label: thm:hs-bias
+  chapter: '13'
+  origin: paper:pz2026f
+  status: proved
+  highlight: false
+  summary: The variance lost when each client's horseshoe posterior is replaced by a Gaussian vanishes for strong signals and is bounded by a quarter of the squared observation for every coordinate.
+  statement: >-
+    In the normal means model where client $k$ observes $y^{(k)}_j\sim N(\theta_j,\sigma^2)$ for coordinate $j$, under the horseshoe prior with local scale $\lambda_j\sim C^+(0,1)$ and shrinkage weights $\kappa^{(k)}_j=\sigma^2/(\sigma^2+\lambda_j^2\tau^2)$, define for client $k$ and coordinate $j$ the variance of shrinkage term $\Delta^{(k)}_j=(y^{(k)}_j)^2\,\mathrm{Var}[\kappa^{(k)}_j\mid y^{(k)}_j,\tau]$. Then (i) for a signal, $\Delta^{(k)}_j\to0$ as $|y^{(k)}_j|\to\infty$; (ii) for noise, $\theta_{0j}=0$, $\Delta^{(k)}_j\le\frac14(y^{(k)}_j)^2$, so $\mathrm{E}[\Delta^{(k)}_j]\le\sigma^2/4$; (iii) universally, $\Delta^{(k)}_j\le\frac14(y^{(k)}_j)^2$ and $\sum_j\Delta^{(k)}_j\le\frac14\|Y_k\|^2$.
+- id: federated_horseshoe_bias_vanishes_many_clients
+  name: Federated horseshoe variance bias vanishes with many clients
+  label: thm:hs-bias-K
+  chapter: '13'
+  origin: paper:pz2026f
+  status: proved
+  highlight: false
+  summary: With many homogeneous clients the variance bias of the product of Gaussian approximations is of order one over K, the same order as the posterior variance itself, so the bound alone does not make the relative error small.
+  statement: >-
+    Take homogeneous clients ($n_k\equiv n$, each with noise variance $\sigma^2$) and a fixed global scale $\tau$. For coordinate $j$ let $\hat\pi_j$ be the product of the $K$ Gaussian approximations $\hat\pi^j_k$, with variances $V^j_k=\sigma^2(1-\bar\kappa^{(k)}_j)$ and $\bar\kappa^{(k)}_j$ the Gaussian approximation's shrinkage weight, and let $\pi^*_j$ be the product of the $K$ Gaussians with the means and variances of the local horseshoe posteriors. Let $w_k=(V^j_k)^{-1}/\sum_i(V^j_i)^{-1}$ and let $\bar\kappa_0<1$ be the value of $\bar\kappa^{(k)}_j$ at $y^{(k)}_j=0$, which depends only on $\tau/\sigma$. The variance of $\pi^*_j$ exceeds that of $\hat\pi_j$ by the aggregate bias $\Delta^{\mathrm{agg}}_j$, and $\Delta^{\mathrm{agg}}_j\le\sum_{k=1}^K w_k^2\Delta^{(k)}_j\le\sum_{k=1}^K(y^{(k)}_j)^2/\{4K^2(1-\bar\kappa_0)^2\}=O_p(1/K)$. As $K\to\infty$ with $\sigma^2$ and $\tau$ fixed, $\Delta^{\mathrm{agg}}_j\to0$ in probability, while the variance of $\hat\pi_j$, between $\sigma^2(1-\bar\kappa_0)/K$ and $\sigma^2/K$, shrinks at the same rate. The means $\hat\mu_j$ and $\mu^*_j$ coincide when all $V^j_k$ are equal but not in general, and the transport distance between $\hat\pi=\prod_j\hat\pi_j$ and $\pi^*=\prod_j\pi^*_j$ obeys $W_2^2(\hat\pi,\pi^*)-\sum_j(\hat\mu_j-\mu^*_j)^2\le\sum_j\Delta^{\mathrm{agg}}_j=O_p(d/K)$. The location error $\hat\mu_j-\mu^*_j$ is $O_p(K^{-1/2})$ for a noise coordinate, $\theta_{0j}=0$, but need not vanish for a signal.
