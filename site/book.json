@@ -27,6 +27,7 @@
  "date_released": "2026-11-08",
  "publisher": "Independently published",
  "doi": "10.5281/zenodo.24067804",
+ "concept_doi": "10.5281/zenodo.24067803",
  "language": "en",
  "keywords": [
   "Bayesian statistics",
@@ -67,6 +68,9 @@
   "repository": "https://github.com/VadimSokolov/elements_bayes_information",
   "source": "https://github.com/VadimSokolov/elements_bayes_information/tree/v1.0.0",
   "doi": "https://doi.org/10.5281/zenodo.24067804",
+  "concept_doi": "https://doi.org/10.5281/zenodo.24067803",
+  "zenodo": "https://zenodo.org/records/24067804",
+  "doi_badge": "https://zenodo.org/badge/DOI/10.5281/zenodo.24067804.svg",
   "icon_pdf": "https://vsokolov.org/books/icon-pdf.svg",
   "icon_github": "https://vsokolov.org/books/icon-github.svg",
   "cover": "https://vsokolov.org/books/elements_bayes_information/cover.jpg"
